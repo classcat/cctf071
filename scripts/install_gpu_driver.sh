@@ -1,10 +1,24 @@
 #!/bin/bash
 
+###################################################################
+### Copyright (C) 2016 ClassCat(R) Co.,Ltd. All righs Reserved. ###
+###################################################################
+
+# --- HISTORY -----------------------------------------------------
+# 29-feb-16 : created.
+# -----------------------------------------------------------------
+
+
+. ../gpu_common.conf
+
 
 # working dir should be /mnt
 cd /mnt
 
-# drm driver
+
+###
+### DRM Driver
+###
 
 s3cmd get s3://classcat-com/ubuntu-kernel/drm.ko.3.13.0-${KERNEL_REVISION}-generic drm.ko
 
@@ -15,7 +29,9 @@ install -u root -g root -m 0644 drm.ko /lib/modules/3.13.0-${KERNEL_REVISION}-ge
 insmod /lib/modules/3.13.0-${KERNEL_REVISION}-generic/kernel/drivers/gpu/drm/drm.ko
 
 
-# nvidia driver
+###
+### NVIDIA Driver
+###
 
 apt-get install -y gcc make
 
@@ -29,6 +45,21 @@ chmod +x NVIDIA-Linux-x86_64-352.63.run
 
 ./NVIDIA-Linux-x86_64-352.63.run
 
+
+# Clean up
+
+cd /mnt
+rm -rf nvidia
+
+# Finish
+
+echo ""
+echo "DRM/NVIDIA driver installed, please reboot the instance."
+echo "Then, run install_cuda_and_cudnn.sh"
+echo ""
+
+
 exit 0
+
 
 ### End of Script ###
