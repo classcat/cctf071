@@ -5,12 +5,13 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 01-mar-16 : use build_kernel.conf instead of init_instance.conf
 # 01-mar-16 : msg out.
 # 29-feb-16 : created.
 # -----------------------------------------------------------------
 
 
-. ../conf/init_instance.conf
+. ../conf/build_kernel.conf
 
 
 apt-get update
