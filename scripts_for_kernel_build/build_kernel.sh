@@ -1,6 +1,16 @@
 #!/bin/bash
 
-. ../conf/build_kernel.conf
+###################################################################
+### Copyright (C) 2016 ClassCat(R) Co.,Ltd. All righs Reserved. ###
+###################################################################
+
+# --- HISTORY -----------------------------------------------------
+# 29-feb-16 : created.
+# -----------------------------------------------------------------
+
+
+. ../conf_for_kernel_build/build.conf
+
 
 apt-get install -y build-essential libncurses5-dev
 
@@ -15,6 +25,10 @@ cd /usr/src/linux-source-3.13.0/linux-source-3.13.0
 cp -p /boot/config-3.13.0-${KERNEL_REVISION}-generic ./.config
 
 time make -j ${NUMBER_OF_CORES}
+
+###
+### Store it to s3.
+###
 
 s3cmd put drivers/gpu/drm/drm.ko s3://classcat-com/ubuntu-kernel/drm.ko.3.13.0-${KERNEL_REVISION}-generic
 

@@ -11,7 +11,7 @@
 # -----------------------------------------------------------------
 
 
-. ../conf/build_kernel.conf
+. ../conf_for_kernel_build/build.conf
 
 
 apt-get update
