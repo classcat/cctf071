@@ -13,11 +13,11 @@
 
 apt-get update
 
-apt-get upgrade
+apt-get -y upgrade
 
-apt-get dist-upgrade
+apt-get -y dist-upgrade
 
-apt-get install ntp
+apt-get install -y ntp
 
 
 ### BACKUP ###
