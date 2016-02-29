@@ -47,6 +47,8 @@ SWAPFILENAME=/swap.img
 SIZE=${SWAP_SIZE}
 
 fallocate -l \$SIZE \$SWAPFILENAME && mkswap \$SWAPFILENAME && swapon \$SWAPFILENAME
+
+exit 0
 _EOB_
 
 
