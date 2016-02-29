@@ -60,7 +60,7 @@ _EOB_
 ### SSH
 ###
 
-sed -i.bak -e "s/^PasswordAuthentication\s+no/PasswordAuthentication yes/g" /etc/ssh/sshd_config
+sed -i.bak -e "s/^PasswordAuthentication\s*no/PasswordAuthentication yes/g" /etc/ssh/sshd_config
 
 service ssh reload
 
@@ -73,13 +73,13 @@ service ssh reload
 
 useradd tensorflow -c TensorFlow -m -s /bin/bash
 
-useradd tensorflow070 -c TensorFlow v0.7.0 -m -s /bin/bash
+useradd tensorflow070 -c 'TensorFlow v0.7.0' -m -s /bin/bash
 
 PASSWD=`cat /dev/urandom | tr -dc "0-9" | fold -w 5 | head -n 1`
 
-echo "ClassCat-${PASSWD}" | passwd --stdin tensorflow
+echo "tensorflow:ClassCat-${PASSWD}" | chpasswd
 
-echo "ClassCat-${PASSWD}" | passwd --stdin tensorflow070
+echo "tensorflow070:ClassCat-${PASSWD}" | chpasswd
 
 
 ### S3CMD ###
@@ -95,9 +95,9 @@ sed -i      -e "s/^secret_key\s*=.*/secret_key = ${S3CMD_SECRET_KEY}/g" /root/.s
 #### Final ###
 
 echo ""
-echo "\$PASSWD is ${PASSWD}, BE SURE TO KEEP IT ONTO THE NOTE."
+echo ">>> \$PASSWD is ${PASSWD}, BE SURE TO KEEP IT ONTO THE NOTE."
 echo ""
-echo "To enable a swap file, please reboot the instance."
+echo "To enable the latest kernel and a swap file, please reboot the instance."
 echo ""
 
 exit 0
