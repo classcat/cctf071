@@ -2,11 +2,11 @@
 
 . ../conf/build_kernel.conf
 
-apt-get install build-essential libncurses5-dev
+apt-get install -y build-essential libncurses5-dev
 
-apt-get install linux-source
+apt-get install -y linux-source
 
-/usr/src/linux-source-3.13.0
+cd /usr/src/linux-source-3.13.0
 
 tar xfj linux-source-3.13.0.tar.bz2
 
