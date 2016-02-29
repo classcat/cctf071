@@ -29,7 +29,7 @@ cp -a /etc /etc.ec2.orig
 
 cp -p /etc/rc.local /etc/rc.local.orig
 
-cat <<_EOB_ > test
+cat <<_EOB_ > /etc/rc.local
 #!/bin/sh -e
 #
 # rc.local
