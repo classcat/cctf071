@@ -13,6 +13,8 @@
 . ../conf/init_instance.conf
 
 
+### Basic ###
+
 apt-get update
 
 apt-get -y upgrade
@@ -54,6 +56,32 @@ exit 0
 _EOB_
 
 
+###
+### SSH
+###
+
+sed -i.bak -e "s/^PasswordAuthentication\s+no/PasswordAuthentication yes/g" /etc/ssh/sshd_config
+
+service ssh reload
+
+
+###
+### Add User Account
+###
+
+#apt-get install -y pwgen
+
+useradd tensorflow -c TensorFlow -m -s /bin/bash
+
+useradd tensorflow070 -c TensorFlow v0.7.0 -m -s /bin/bash
+
+PASSWD=`cat /dev/urandom | tr -dc "0-9" | fold -w 5 | head -n 1`
+
+echo "ClassCat-${PASSWD}" | passwd --stdin tensorflow
+
+echo "ClassCat-${PASSWD}" | passwd --stdin tensorflow070
+
+
 ### S3CMD ###
 
 apt-get install s3cmd
@@ -64,8 +92,10 @@ sed -i.tmpl -e "s/^access_key\s*=.*/access_key = ${S3CMD_ACCESS_KEY}/g" /root/.s
 sed -i      -e "s/^secret_key\s*=.*/secret_key = ${S3CMD_SECRET_KEY}/g" /root/.s3cfg
 
 
-### 
+#### Final ###
 
+echo ""
+echo "\$PASSWD is ${PASSWD}, BE SURE TO KEEP IT ONTO THE NOTE."
 echo ""
 echo "To enable a swap file, please reboot the instance."
 echo ""
