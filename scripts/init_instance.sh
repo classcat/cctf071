@@ -46,7 +46,7 @@ cat <<_EOB_ > test
 SWAPFILENAME=/swap.img
 SIZE=${SWAP_SIZE}
 
-fallocate -l $SIZE $SWAPFILENAME && mkswap $SWAPFILENAME && swapon $SWAPFILENAME
+fallocate -l \$SIZE \$SWAPFILENAME && mkswap \$SWAPFILENAME && swapon \$SWAPFILENAME
 _EOB_
 
 
