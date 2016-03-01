@@ -40,11 +40,16 @@ git checkout tags/0.1.5
 
 time ./compile.sh
 
-install -u root -g root -m 0755 output/bazel /usr/local/bin/bazel.015
+install -o root -g root -m 0755 output/bazel /usr/local/bin/bazel.015
 
 ln -s /usr/local/bin/bazel.015 /usr/local/bin/bazel
 
 
+echo ""
+echo "############################################################"
+echo " Bazel has been installed onto /usr/local/bin successfully."
+echo "############################################################"
+echo ""
 
 exit 0
 
