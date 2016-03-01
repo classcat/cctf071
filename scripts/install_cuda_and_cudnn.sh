@@ -1,4 +1,4 @@
-#!/bin/bash
+1#!/bin/bash
 
 ###################################################################
 ### Copyright (C) 2016 ClassCat(R) Co.,Ltd. All righs Reserved. ###
@@ -71,12 +71,12 @@ make
 
 make clean
 
-cd ~
+cd /mnt
 
 ##
 
 echo ""
-echo "CUDA 7.5 & cnDNN v4 installed, please reboot the instance."
+echo "CUDA 7.5 & cnDNN v4 has been installed, please reboot the instance."
 echo ""
 
 
