@@ -76,7 +76,9 @@ cd /mnt
 ##
 
 echo ""
-echo "CUDA 7.5 & cnDNN v4 has been installed, please reboot the instance."
+echo "#####################################################################"
+echo " CUDA 7.5 & cnDNN v4 has been installed, please reboot the instance. "
+echo "#####################################################################"
 echo ""
 
 
