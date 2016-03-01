@@ -5,7 +5,7 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
-#
+# 02-mar-16 : "apt-get steps" moved into init_instance.sh
 # -----------------------------------------------------------------
 
 
@@ -14,20 +14,20 @@
 cd /mnt
 
 
-apt-get install -y zip unzip zlib1g-dev swig
+#apt-get install -y zip unzip zlib1g-dev swig
 
 
 ### JDK 8 ###
 
-apt-add-repository ppa:openjdk-r/ppa
-
-apt-get update
-
-apt-get install -y openjdk-8-jdk
-
-update-alternatives --config java
-
-update-alternatives --config javac
+#apt-add-repository ppa:openjdk-r/ppa
+#
+#apt-get update
+#
+#apt-get install -y openjdk-8-jdk
+#
+#update-alternatives --config java
+#
+#update-alternatives --config javac
 
 
 ### BAZEL ###
