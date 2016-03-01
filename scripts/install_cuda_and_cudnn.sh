@@ -45,14 +45,17 @@ cp -r cuda /usr/local/cudnn-r4
 
 ###
 
+echo "" >> /root/.bashrc
 echo "export CUDA_HOME=/usr/local/cuda" >> /root/.bashrc
 echo "export PATH=$PATH:\$CUDA_HOME/bin" >> /root/.bashrc
 echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$CUDA_HOME/lib64:/usr/local/cudnn-r4/cuda/lib64" >> /root/.bashrc
 
+echo "" >> /home/tensorflow/.bashrc
 echo "export CUDA_HOME=/usr/local/cuda" >> /home/tensorflow/.bashrc
 echo "export PATH=$PATH:\$CUDA_HOME/bin" >> /home/tensorflow/.bashrc
 echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$CUDA_HOME/lib64:/usr/local/cudnn-r4/cuda/lib64" >> /home/tensorflow/.bashrc
 
+echo "" >> /home/tensorflow070/.bashrc
 echo "export CUDA_HOME=/usr/local/cuda" >> /home/tensorflow070/.bashrc
 echo "export PATH=$PATH:\$CUDA_HOME/bin" >> /home/tensorflow070/.bashrc
 echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$CUDA_HOME/lib64:/usr/local/cudnn-r4/cuda/lib64" >> /home/tensorflow070/.bashrc
@@ -71,7 +74,13 @@ make
 
 make clean
 
+
+### clean up
+
 cd /mnt
+
+rm -rf nvidia
+
 
 ##
 
