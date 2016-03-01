@@ -57,6 +57,21 @@ echo "export CUDA_HOME=/usr/local/cuda" >> /home/tensorflow070/.bashrc
 echo "export PATH=$PATH:\$CUDA_HOME/bin" >> /home/tensorflow070/.bashrc
 echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$CUDA_HOME/lib64:/usr/local/cudnn-r4/cuda/lib64" >> /home/tensorflow070/.bashrc
 
+##
+
+source ~/.bashrc
+
+cp -a /usr/local/cuda/samples ./cuda.samples
+
+cd cuda.samples/1_Utilities/deviceQuery
+
+make
+
+./deviceQuery
+
+make clean
+
+cd ~
 
 ##
 

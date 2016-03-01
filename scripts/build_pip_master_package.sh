@@ -28,6 +28,21 @@
 # [Default is: "3.5,5.2"]: 3.0
 #
 
+### check device query ###
+
+cp -a /usr/local/cuda/samples ./cuda.samples
+
+cd cuda.samples/1_Utilities/deviceQuery
+
+make
+
+./deviceQuery
+
+make clean
+
+cd ~
+
+
 ### Pip Master pacakges of TensorFlow
 
 virtualenv venv2_tf_master
