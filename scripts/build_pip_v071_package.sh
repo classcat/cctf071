@@ -30,9 +30,9 @@
 
 ### check device query ###
 
-cp -a /usr/local/cuda/samples ./cuda.samples
+cp -a /usr/local/cuda/samples ~/cuda.samples
 
-cd cuda.samples/1_Utilities/deviceQuery
+cd ~/cuda.samples/1_Utilities/deviceQuery
 
 make
 
