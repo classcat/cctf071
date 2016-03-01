@@ -28,12 +28,23 @@ function check_if_continue () {
   fi
 }
 
+function show_banner () {
+  clear
+
+  echo -e  ""
+  echo -en "\x1b[22;36m"
+  echo -e  "\tClassCat(R) Deep Learning Service"
+  echo -e  "\tCopyright (C) 2015 ClassCat Co.,Ltd. All rights reserved."
+  echo -en "\x1b[m"
+  echo -e  "\t\t\x1b[22;34m@Init Insance\x1b[m: release: rc 0xff (2015/03/02)"
+  # echo -e  ""
+}
 
 function confirm () {
   local var_continue
 
   echo ""
-  echo -ne "Make sure setting ../conf/init_instance.conf properly. Press return to continue : " >&2
+  echo -ne "Make sure setting ../conf/init_instance.conf properly. Press return to continue (or ^C to exit) : " >&2
 
   read var_continue
 }
@@ -87,6 +98,8 @@ _EOB_
 
 function init () {
   check_if_continue
+
+  show_banner
 
   confirm
 
