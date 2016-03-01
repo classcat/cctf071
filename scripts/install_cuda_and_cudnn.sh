@@ -46,11 +46,16 @@ cp -r cuda /usr/local/cudnn-r4
 ###
 
 echo "export CUDA_HOME=/usr/local/cuda" >> /root/.bashrc
-echo "export PATH=$PATH:$CUDA_HOME/bin" >> /root/.bashrc
-echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDA_HOME/lib64:/usr/local/cudnn-2.0/lib64" >> /root/.bashrc
+echo "export PATH=$PATH:\$CUDA_HOME/bin" >> /root/.bashrc
+echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$CUDA_HOME/lib64:/usr/local/cudnn-r4/cuda/lib64" >> /root/.bashrc
 
-#export CPATH=$CPATH:$CUDA_HOME/include:/usr/local/cudnn-2.0/include
-#export CUDA_INC_DIR=$CUDA_HOME/bin
+echo "export CUDA_HOME=/usr/local/cuda" >> /home/tensorflow/.bashrc
+echo "export PATH=$PATH:\$CUDA_HOME/bin" >> /home/tensorflow/.bashrc
+echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$CUDA_HOME/lib64:/usr/local/cudnn-r4/cuda/lib64" >> /home/tensorflow/.bashrc
+
+echo "export CUDA_HOME=/usr/local/cuda" >> /home/tensorflow070/.bashrc
+echo "export PATH=$PATH:\$CUDA_HOME/bin" >> /home/tensorflow070/.bashrc
+echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$CUDA_HOME/lib64:/usr/local/cudnn-r4/cuda/lib64" >> /home/tensorflow070/.bashrc
 
 
 ##
@@ -58,7 +63,6 @@ echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDA_HOME/lib64:/usr/local/cudnn-
 echo ""
 echo "CUDA 7.5 & cnDNN v4 installed, please reboot the instance."
 echo ""
-
 
 
 exit 0
