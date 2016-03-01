@@ -1,5 +1,50 @@
 #!/bin/bash
 
+###################################################################
+### Copyright (C) 2016 ClassCat(R) Co.,Ltd. All righs Reserved. ###
+###################################################################
+
+# --- HISTORY -----------------------------------------------------
+#
+# -----------------------------------------------------------------
+
+
+# working directory on /mnt
+
+cd /mnt
+
+
+apt-get install -y zip unzip zlib1g-dev swig
+
+
+### JDK 8 ###
+
+apt-add-repository ppa:openjdk-r/ppa
+
+apt-get update
+
+apt-get install -y openjdk-8-jdk
+
+update-alternatives --config java
+
+update-alternatives --config javac
+
+
+### BAZEL ###
+
+git clone https://github.com/bazelbuild/bazel.git
+
+cd bazel
+
+git checkout tags/0.1.5
+
+time ./compile.sh
+
+install -u root -g root -m 0755 output/bazel /usr/local/bin/bazel.015
+
+ln -s /usr/local/bin/bazel.015 /usr/local/bin/bazel
+
+
 
 exit 0
 
