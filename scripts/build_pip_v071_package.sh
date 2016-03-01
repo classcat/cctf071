@@ -7,6 +7,9 @@
 # --- Descrption --------------------------------------------------
 # Run on the account - tensorflow070.
 #
+# --- TODO --------------------------------------------------------
+# o PS1 (01-mar-16)
+#
 # --- HISTORY -----------------------------------------------------
 # 29-feb-16 : created.
 # -----------------------------------------------------------------
@@ -44,9 +47,9 @@ cd ~
 
 ### Pip v0.7.1 pacakges of TensorFlow
 
-virtualenv venv2_tf_071
+virtualenv venv2_tf071
 
-. venv2_tf_071/bin/activate
+. venv2_tf071/bin/activate
 
 pip install wheel
 
@@ -70,10 +73,10 @@ time bazel build -c opt --config=cuda //tensorflow/tools/pip_package:build_pip_p
 
 bazel-bin/tensorflow/tools/pip_package/build_pip_package ~/.tf_pip_pkg
 
-pip install ~/.tf_pip_pkg/tensorflow-0.7.1-py2-none-any.whl 
+pip install ~/.tf_pip_pkg/tensorflow-0.7.1-py2-none-any.whl
 
 
-echo ". venv2_tf_master/bin/activate" >> ~/.bashrc
+echo ". venv2_tf071/bin/activate" >> ~/.bashrc
 
 #deactivate
 

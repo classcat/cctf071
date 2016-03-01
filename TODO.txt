@@ -1,0 +1,5 @@
+
+
+o s3 for guest account. [01-mar-16]
+
+o PS1 virtualenv (01-mar-16)

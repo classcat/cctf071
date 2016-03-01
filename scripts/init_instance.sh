@@ -73,13 +73,13 @@ service ssh reload
 
 useradd tensorflow -c TensorFlow -m -s /bin/bash
 
-useradd tensorflow070 -c 'TensorFlow v0.7.0' -m -s /bin/bash
+useradd tensorflow071 -c 'TensorFlow v0.7.1' -m -s /bin/bash
 
 PASSWD=`cat /dev/urandom | tr -dc "0-9" | fold -w 5 | head -n 1`
 
 echo "tensorflow:ClassCat-${PASSWD}" | chpasswd
 
-echo "tensorflow070:ClassCat-${PASSWD}" | chpasswd
+echo "tensorflow071:ClassCat-${PASSWD}" | chpasswd
 
 
 ### S3CMD ###
