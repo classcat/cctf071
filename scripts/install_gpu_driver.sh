@@ -28,7 +28,7 @@ s3cmd get s3://classcat-com/ubuntu-kernel/drm.ko.3.13.0-${KERNEL_REVISION}-gener
 
 mkdir -p /lib/modules/3.13.0-${KERNEL_REVISION}-generic/kernel/drivers/gpu/drm
 
-install -u root -g root -m 0644 drm.ko /lib/modules/3.13.0-${KERNEL_REVISION}-generic/kernel/drivers/gpu/drm
+install -o root -g root -m 0644 drm.ko /lib/modules/3.13.0-${KERNEL_REVISION}-generic/kernel/drivers/gpu/drm
 
 insmod /lib/modules/3.13.0-${KERNEL_REVISION}-generic/kernel/drivers/gpu/drm/drm.ko
 
