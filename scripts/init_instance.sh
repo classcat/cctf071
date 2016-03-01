@@ -6,6 +6,7 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 02-mar-16 : /etc/hosts
 # 02-mar-16 : fixed.
 # 02-mar-16 : remake the structure.
 # 29-feb-16 : created.
@@ -40,6 +41,7 @@ function show_banner () {
   # echo -e  ""
 }
 
+
 function confirm () {
   local var_continue
 
@@ -58,6 +60,10 @@ function init_instance () {
   apt-get -y dist-upgrade
 
   apt-get install -y ntp
+
+  ### /etc/hosts to disable ipv6 ###
+  cp -p /etc/hosts /etc/hosts.orig
+  echo "127.0.0.1\tlocalhost\n" > /etc/hosts
 
   ### BACKUP ###
   cp -a /etc /etc.ec2.orig
