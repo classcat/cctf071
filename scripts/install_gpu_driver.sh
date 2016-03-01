@@ -9,11 +9,15 @@
 # -----------------------------------------------------------------
 
 
-. ../gpu_common.conf
+. ../conf/gpu_common.conf
 
 
 # working dir should be /mnt
 cd /mnt
+
+mkdir -p nvidia
+
+cd nvidia
 
 
 ###
@@ -34,10 +38,6 @@ insmod /lib/modules/3.13.0-${KERNEL_REVISION}-generic/kernel/drivers/gpu/drm/drm
 ###
 
 apt-get install -y gcc make
-
-mkdir nvidia
-
-cd nvida
 
 wget http://us.download.nvidia.com/XFree86/Linux-x86_64/352.63/NVIDIA-Linux-x86_64-352.63.run
 
