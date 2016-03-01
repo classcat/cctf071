@@ -54,7 +54,7 @@ rm -rf nvidia
 # Finish
 
 echo ""
-echo "DRM/NVIDIA driver installed, please reboot the instance."
+echo "DRM/NVIDIA driver has been installed, please reboot the instance."
 echo "Then, run install_cuda_and_cudnn.sh"
 echo ""
 
