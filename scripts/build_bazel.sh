@@ -44,6 +44,13 @@ install -o root -g root -m 0755 output/bazel /usr/local/bin/bazel.015
 
 ln -s /usr/local/bin/bazel.015 /usr/local/bin/bazel
 
+### CLEAN UP ###
+
+cd /mnt
+rm -rf bazel
+
+bazel version
+
 
 echo ""
 echo "############################################################"
