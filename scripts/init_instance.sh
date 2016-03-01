@@ -92,6 +92,10 @@ sed -i.tmpl -e "s/^access_key\s*=.*/access_key = ${S3CMD_ACCESS_KEY}/g" /root/.s
 sed -i      -e "s/^secret_key\s*=.*/secret_key = ${S3CMD_SECRET_KEY}/g" /root/.s3cfg
 
 
+### VirtualEnv ###
+apt-get install python-pip python-dev python-virtualenv
+
+
 #### Final ###
 
 echo ""
