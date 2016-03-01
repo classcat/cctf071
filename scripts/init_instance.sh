@@ -84,7 +84,7 @@ echo "tensorflow070:ClassCat-${PASSWD}" | chpasswd
 
 ### S3CMD ###
 
-apt-get install s3cmd
+apt-get install -y s3cmd
 
 install -o root -g root ../assets/s3cfg.north-east-1 /root/.s3cfg
 
@@ -93,7 +93,8 @@ sed -i      -e "s/^secret_key\s*=.*/secret_key = ${S3CMD_SECRET_KEY}/g" /root/.s
 
 
 ### VirtualEnv ###
-apt-get install python-pip python-dev python-virtualenv
+
+apt-get install -y python-pip python-dev python-virtualenv
 
 
 #### Final ###
