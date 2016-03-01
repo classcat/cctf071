@@ -213,15 +213,18 @@ add_guest_accounts
 ################
 
 echo ""
-echo "Script has completed tasks completely."
+echo "#########################################################################"
+echo "# Jobs on the script has been completed successfully."
+echo "#"
+echo -e "# >>> \$PASSWD is \x1b[22;34m${PASSWD}\x1b[m <<<"
+echo -e "# >>> BE SURE to MAKE a NOTE to KEEP IT.     <<<"
+echo "#"
+echo "# To enable the latest kernel & a swap file, please REBOOT the instance."
+echo "#########################################################################"
 echo ""
-echo ">>> \$PASSWD is ${PASSWD}, BE SURE TO KEEP IT ONTO THE NOTE. <<<"
-echo ""
-echo "To enable the latest kernel and a swap file, please REBOOT the instance."
-echo ""
-
 
 exit 0
 
+\x1b[22;34m@Init Insance\x1b[m:
 
 ### End of Script ###
