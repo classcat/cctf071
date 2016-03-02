@@ -8,8 +8,20 @@
 # 29-feb-16 : created.
 # -----------------------------------------------------------------
 
+lspci
 
+lsmod | grep -y nvidia
 
+nvidia-smi
 
+cd /mnt
 
-cd /usr/local
+cp -a /usr/local/cuda/samples ./cuda.samples
+
+cd cuda.samples/1_Utilities/deviceQuery
+
+make
+
+./deviceQuery
+
+make clean
