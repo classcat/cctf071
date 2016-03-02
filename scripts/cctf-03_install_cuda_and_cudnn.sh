@@ -1,4 +1,4 @@
-1#!/bin/bash
+#!/bin/bash
 
 ###################################################################
 ### ClassCat(R) Deep Learning Service

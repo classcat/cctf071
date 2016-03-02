@@ -25,3 +25,5 @@ make
 ./deviceQuery
 
 make clean
+
+bazel version
