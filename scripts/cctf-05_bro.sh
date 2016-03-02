@@ -76,7 +76,32 @@ function install_postfix () {
 
 
 function install_bro () {
+  wget https://www.bro.org/downloads/release/bro-2.4.1.tar.gz
 
+  tar xfz bro-2.4.1.tar.gz
+
+  cd bro-2.4.1
+
+  ./configure
+
+  make
+
+  make install
+
+  echo "export PATH=$PATH:/usr/local/bro/bin" >> /root/.bashrc
+
+  ssh-keygen -t rsa -f ~/.ssh/id_rsa -P ""
+
+  cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+
+  echo "Host *"                      > ~/.ssh/config
+  echo "\tStrictHostKeyChecking=no" >> ~/.ssh/config
+
+  sed -i.bak -e "s/MailTo\s*=.*/MailTo=cctf@classcat.com/g" /usr/local/bro/etc/broctl.cfg
+
+  /usr/local/bro/bin/broctl install
+  /usr/local/bro/bin/broctl check
+  /usr/local/bro/bin/broctl sart
 
 }
 
@@ -87,9 +112,27 @@ function install_bro () {
 
 init
 
+### Postfix ###
 instsall_postfix
 
+### Working Directory ###
+mkdir -p /mnt/bro
+cd /mnt/bro
+
+### Bro ###
 install_bro
+
+### CLEAN UP ###
+cd /mnt
+rm -rf bro
+
+### Finally ###
+
+echo ""
+echo "###################################################################"
+echo "# Bro has been installed successfully."
+echo "###################################################################"
+echo ""
 
 
 exit 0
