@@ -88,20 +88,20 @@ function install_bro () {
 
   make install
 
-  echo "export PATH=$PATH:/usr/local/bro/bin" >> /root/.bashrc
+  echo "export PATH=\$PATH:/usr/local/bro/bin" >> /root/.bashrc
 
   ssh-keygen -t rsa -f ~/.ssh/id_rsa -P ""
 
   cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
   echo "Host *"                      > ~/.ssh/config
-  echo "\tStrictHostKeyChecking=no" >> ~/.ssh/config
+  echo -e "\tStrictHostKeyChecking=no" >> ~/.ssh/config
 
   sed -i.bak -e "s/MailTo\s*=.*/MailTo=cctf@classcat.com/g" /usr/local/bro/etc/broctl.cfg
 
   /usr/local/bro/bin/broctl install
   /usr/local/bro/bin/broctl check
-  /usr/local/bro/bin/broctl sart
+  /usr/local/bro/bin/broctl start
 
 }
 
@@ -113,7 +113,7 @@ function install_bro () {
 init
 
 ### Postfix ###
-instsall_postfix
+install_postfix
 
 ### Working Directory ###
 mkdir -p /mnt/bro
