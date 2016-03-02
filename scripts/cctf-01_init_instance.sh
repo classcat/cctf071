@@ -6,6 +6,7 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 02-mar-16 : pkgs for bro.
 # 02-mar-16 : pkgs for nvidia driver build.
 # 02-mar-16 : /etc/hosts
 # 02-mar-16 : fixed.
@@ -179,6 +180,15 @@ function install_pkgs_for_bazel () {
 }
 
 
+###
+### Bro
+###
+
+function install_pkgs_for_bro () {
+  apt-get install -y cmake make gcc g++ flex bison libpcap-dev libssl-dev python-dev swig zlib1g-dev
+}
+
+
 
 ###
 ### Add Guest Account
@@ -214,6 +224,8 @@ install_pkgs_for_nvidia_driver
 install_pkgs_for_venv
 
 install_pkgs_for_bazel
+
+install_pkgs_for_bro
 
 add_guest_accounts
 
