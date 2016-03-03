@@ -6,7 +6,7 @@
 ###################################################################
 
 # --- Descrption --------------------------------------------------
-# Run on the account: tensorflow.
+# 03-mar-16 : Beta.
 #
 # --- TODO --------------------------------------------------------
 # o PS1 (01-mar-16)
@@ -109,10 +109,10 @@ rm -rf cuda_test
 
 
 echo ""
-echo "################################################################"
-echo "# The execution of this script has been completed successfully."
+echo "####################################################"
+echo "# Script execution has been completed successfully."
 echo "# Then, run cctf-05_build_bazel.sh"
-echo "################################################################"
+echo "####################################################"
 echo ""
 
 

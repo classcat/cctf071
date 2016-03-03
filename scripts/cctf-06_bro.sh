@@ -6,6 +6,7 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 03-mar-16 : beta.
 # 02-mar-16 : created.
 # -----------------------------------------------------------------
 
@@ -112,6 +113,7 @@ function install_bro () {
 
 init
 
+
 ### Postfix ###
 install_postfix
 
@@ -126,12 +128,14 @@ install_bro
 cd /mnt
 rm -rf bro
 
+
 ### Finally ###
 
 echo ""
 echo "###################################################################"
-echo "# The execution of this script has been completed successfully."
-echo "# Then, run ../scripts_for_guest/cctf-07_device_query.sh.
+echo "# Script execution has been completed successfully."
+echo "#"
+echo "# You have completed install tasks as root."
 echo "###################################################################"
 echo ""
 

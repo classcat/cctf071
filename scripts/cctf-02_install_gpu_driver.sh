@@ -6,6 +6,7 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 03-mar-16 : beta.
 # 03-mar-16 : changed the url.
 # 02-mar-16 : fixed.
 # 29-feb-16 : created.
@@ -77,6 +78,11 @@ function install_drm_driver () {
   install -o root -g root -m 0644 drm.ko /lib/modules/3.13.0-${KERNEL_REVISION}-generic/kernel/drivers/gpu/drm
 
   insmod /lib/modules/3.13.0-${KERNEL_REVISION}-generic/kernel/drivers/gpu/drm/drm.ko
+
+  if [ "$?" != 0 ]; then
+    echo "Script aborted. insmod drm.ko failed."
+    exit 1
+  fi
 }
 
 
@@ -130,10 +136,10 @@ rm -rf nvidia
 
 echo ""
 echo "#####################################################################"
-echo "# The execution of this script has been completed successfully."
+echo "# Scritp execution has been completed successfully."
 echo "#"
 echo "# 1) To enable DRM/NVIDIA driver, please reboot the instance as follows :"
-echo "# # sync && reboot "
+echo "#        # sync && reboot "
 echo "#"
 echo "# 2) Then, run cctf-03_install_cuda_and_cudnn.sh."
 echo "#####################################################################"

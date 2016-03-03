@@ -6,6 +6,7 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 03-mar-16 : beta.
 # 02-mar-16 : fixed.
 # 02-mar-16 : "apt-get steps" moved into init_instance.sh
 # -----------------------------------------------------------------
@@ -81,7 +82,6 @@ function build_bazel () {
     exit 1
   fi
 
-
   install -o root -g root -m 0755 output/bazel /usr/local/bin/bazel.015
 
   ln -s /usr/local/bin/bazel.015 /usr/local/bin/bazel
@@ -114,13 +114,14 @@ rm -rf bazel
 
 
 echo ""
-echo "###################################################################"
-echo "# The execution of this script has been completed successfully."
+echo "###################################################"
+echo "# Script execution has been completed successfully."
 echo "# Then, run cctf-06_bro.sh"
-echo "###################################################################"
+echo "###################################################"
 echo ""
 
 
 exit 0
+
 
 ### End of Script ###

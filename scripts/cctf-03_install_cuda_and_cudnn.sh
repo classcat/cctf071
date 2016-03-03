@@ -6,6 +6,7 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 03-mar-16 : Beta.
 # 03-mar-16 : changed the url.
 # 02-mar-16 : fixed.
 # 29-feb-16 : created.
@@ -127,7 +128,7 @@ mkdir -p /mnt/nvidia2
 cd /mnt/nvidia2
 
 
-### Install CDUA & cuDNN
+### Install CUDA & cuDNN
 
 install_cuda
 
@@ -147,10 +148,10 @@ rm -rf nvidia2
 
 echo ""
 echo "################################################################"
-echo "# The execution of this script has been completed successfully."
+echo "# Script execution has been completed successfully."
 echo "#"
 echo "# 1) To enable CUDA 7.5 & cnDNN v4, please reboot the instance"
-echo "# # sync && reboot "
+echo "#        # sync && reboot "
 echo "#"
 echo "# 2) Then, run cctf04-device_query.sh."
 echo "################################################################"

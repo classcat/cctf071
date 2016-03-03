@@ -6,6 +6,7 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 03-mar-16 : beta.
 # 02-mar-16 : pkgs for bro.
 # 02-mar-16 : pkgs for nvidia driver build.
 # 02-mar-16 : /etc/hosts
@@ -40,7 +41,7 @@ function show_banner () {
   echo -e  "\tClassCat(R) Deep Learning Service"
   echo -e  "\tCopyright (C) 2015 ClassCat Co.,Ltd. All rights reserved."
   echo -en "\x1b[m"
-  echo -e  "\t\t\x1b[22;34m@Init Insance\x1b[m: release: rc 0xff (2015/03/02)"
+  echo -e  "\t\t\x1b[22;34m@Init Insance\x1b[m: release: beta (2015/03/03)"
   # echo -e  ""
 }
 
@@ -138,8 +139,8 @@ function install_and_config_s3cmd () {
 
   install -o root -g root ../assets/s3cfg.north-east-1 /root/.s3cfg
 
-  sed -i.tmpl -e "s/^access_key\s*=.*/access_key = ${S3CMD_ACCESS_KEY}/g" /root/.s3cfg
-  sed -i      -e "s/^secret_key\s*=.*/secret_key = ${S3CMD_SECRET_KEY}/g" /root/.s3cfg
+  sed -i.tmpl -e "s/^access_key\s*=.*/access_key = ${S3_ACCESS_KEY_TO_CCTF}/g" /root/.s3cfg
+  sed -i      -e "s/^secret_key\s*=.*/secret_key = ${S3_SECRET_KEY_TO_CCTF}/g" /root/.s3cfg
 }
 
 
@@ -238,13 +239,13 @@ add_guest_accounts
 
 echo ""
 echo "################################################################################"
-echo "# The execution of this script has been completed successfully."
+echo "# Script execution has been completed successfully."
 echo "#"
-echo "# 1) Make sure to make a note to keep the following password :"
+echo "# 1) Make sure to keep the following password by making a note :"
 echo "#        \$PASSWD is \x1b[22;34m${PASSWD}\x1b[m"
 echo "#"
 echo "# 2) To enable the latest kernel & a swap file, reboot the instance as follows."
-echo "# # sync && reboot "
+echo "#        # sync && reboot "
 echo "#"
 echo "# 3) Then, run cctf-02_install_gpu_driver.sh."
 echo "################################################################################"
