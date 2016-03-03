@@ -22,7 +22,7 @@
 function check_if_continue () {
   local var_continue
 
-  echo -ne "About to construct virtual env for ClassCat Deep Learning service. Continue ? (y/n) : " >&2
+  echo -ne "About to construct virtualenv for ClassCat Deep Learning service. Continue ? (y/n) : " >&2
 
   read var_continue
   if [ -z "$var_continue" ] || [ "$var_continue" != 'y' ]; then
@@ -32,6 +32,7 @@ function check_if_continue () {
   fi
 }
 
+
 function show_banner () {
   clear
 
@@ -40,7 +41,7 @@ function show_banner () {
   echo -e  "\tClassCat(R) Deep Learning Service"
   echo -e  "\tCopyright (C) 2015 ClassCat Co.,Ltd. All rights reserved."
   echo -en "\x1b[m"
-  echo -e  "\t\t\x1b[22;34m@Construct Virutual Env\x1b[m: release: rc 0xff (2015/03/02)"
+  echo -e  "\t\t\x1b[22;34m@Construct VirutualEnv\x1b[m: release: rc 0xff (2015/03/02)"
   # echo -e  ""
 }
 
@@ -53,6 +54,7 @@ function confirm () {
 
   read var_continue
 }
+
 
 
 ###
@@ -68,10 +70,10 @@ function init () {
 }
 
 
-### Pip v0.7.1 pacakges of TensorFlow
 function create_venv_container () {
   virtualenv venv2_tf071
 
+  echo "" >> ~/.bashrc
   echo ". venv2_tf071/bin/activate" >> ~/.bashrc
 }
 
@@ -109,12 +111,12 @@ cd ~
 
 
 echo ""
-echo "################################################################"
-echo "# The execution of this script has been completed successfully."
-echo "# 1) re-login to this account to activate a container."
+echo "#######################################################"
+echo "# Script Execution has been completed successfully."
+echo "# 1) Re-login to this account to activate a container."
 echo "#" 
 echo "# 2) Then, run cctf-09_install_tf_v071.sh."
-echo "################################################################"
+echo "#######################################################"
 echo ""
 
 exit 0

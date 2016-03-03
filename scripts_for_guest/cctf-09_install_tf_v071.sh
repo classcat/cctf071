@@ -45,6 +45,7 @@ function check_if_continue () {
   fi
 }
 
+
 function show_banner () {
   clear
 
@@ -66,6 +67,7 @@ function confirm () {
 
   read var_continue
 }
+
 
 
 ###
@@ -90,8 +92,6 @@ function clone_and_config_tensorflow071 () {
 
   git checkout "v0.7.1"
 
-
-
   TF_UNOFFICIAL_SETTING=1 ./configure
 
   if [ "$?" != 0 ]; then
@@ -101,16 +101,41 @@ function clone_and_config_tensorflow071 () {
 }
 
 
+function start_build () {
+  local var_continue
+
+  echo ""
+  echo -ne "Start Build examples and run it. Press return to continue : " >&2
+
+  read var_continue
+}
+
+
 function build_example () {
-  cd tensorflow
+  start_build
+
+  cd ~/tensorflow
 
   bazel build -c opt --config=cuda //tensorflow/cc:tutorials_example_trainer
 
   bazel-bin/tensorflow/cc/tutorials_example_trainer --use_gpu
 }
 
+
+function start_build2 () {
+  local var_continue
+
+  echo ""
+  echo -ne "Start Pip package and keep it. Press return to continue : " >&2
+
+  read var_continue
+}
+
+
 function build_pip_package () {
-  cd tensorflow
+  start_build2
+
+  cd ~/tensorflow
 
   bazel build -c opt --config=cuda //tensorflow/tools/pip_package:build_pip_package
 
@@ -126,9 +151,6 @@ init
 
 cd ~
 
-# configure requires venv 
-#. venv2_tf071/bin/activate
-
 clone_and_config_tensorflow071
 
 cd ~
@@ -137,12 +159,19 @@ build_example
 
 build_pip_package
 
-
-pip install wheel
-
-pip install numpy
+# keep it
+cp -p  ~/.tf_pip_pkg/tensorflow-0.7.1-py2-none-any.whl /var/tmp/tf_pip_pkg.071
 
 pip install ~/.tf_pip_pkg/tensorflow-0.7.1-py2-none-any.whl
+
+cd ~
+
+echo ""
+echo "####################################################"
+echo "# Script execution has been completed successfully."
+echo "# Then, run cctf-10_s3.sh."
+echo "####################################################"
+echo ""
 
 
 exit 0

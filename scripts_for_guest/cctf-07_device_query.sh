@@ -104,10 +104,10 @@ device_query
 cd ~
 
 echo ""
-echo "################################################################"
-echo "# The execution of this script has been completed successfully."
+echo "####################################################"
+echo "# Script execution has been completed successfully."
 echo "# Then, run cctf-08_construct_venv2.sh."
-echo "################################################################"
+echo "####################################################"
 echo ""
 
 

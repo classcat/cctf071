@@ -84,5 +84,12 @@ init
 
 install_and_config_s3cmd
 
+echo ""
+echo "####################################################"
+echo "# Script execution has been completed successfully."
+echo "####################################################"
+echo ""
+
+
 
 exit 0
