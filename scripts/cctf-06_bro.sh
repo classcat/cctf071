@@ -45,7 +45,7 @@ function confirm () {
 
   echo ""
   echo -ne "Press return to continue (or ^C to exit) : " >&2
-  echo -ne "Make sure setting ../conf/\x1b[22;34mpostfix.conf\x1b[m properly. Press return to continue (or ^C to exit) : " >&2
+  echo -ne "Make sure to set ../conf/\x1b[22;34mpostfix.conf\x1b[m. Press return to continue (or ^C to exit) : " >&2
 
   read var_continue
 }
@@ -67,9 +67,9 @@ function init () {
 function install_postfix () {
   apt-get install -y postfix
 
-  sed -i.bak -e "s/^mydestination\s*=.*/mydestination = ${HOSTNAME_PUBLIC}, ${HOSTNAME_PRIVATE}, localhost.localdomain, localhost/g" /etc/postfix/main.cf
+  sed -i.bak -e "s/^mydestination\s*=.*/mydestination = ${PUBLIC_DNS}, ${PRIVATE_DNS}, localhost.localdomain, localhost/g" /etc/postfix/main.cf
 
-  echo "${HOSTNAME_PUBLIC}" > /etc/mailname
+  echo "${PUBLIC_DNS}" > /etc/mailname
 
   service postfix restart
 }

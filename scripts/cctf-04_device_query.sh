@@ -2,19 +2,24 @@
 
 ###################################################################
 ### ClassCat(R) Deep Learning Service
-### Copyright (C) 2016 ClassCat(R) Co.,Ltd. All righs Reserved.
+### Copyright (C) 2016 ClassCat(R) Co.,Ltd. All righs Reserved. ###
 ###################################################################
 
+# --- Descrption --------------------------------------------------
+# Run on the account: tensorflow.
+#
+# --- TODO --------------------------------------------------------
+# o PS1 (01-mar-16)
+#
 # --- HISTORY -----------------------------------------------------
-# 02-mar-16 : fixed.
-# 02-mar-16 : "apt-get steps" moved into init_instance.sh
+# 29-feb-16 : created.
 # -----------------------------------------------------------------
 
 
 function check_if_continue () {
   local var_continue
 
-  echo -ne "About to build Bazel for ClassCat Deep Learning service. Continue ? (y/n) : " >&2
+  echo -ne "About to query device for ClassCat Deep Learning service. Continue ? (y/n) : " >&2
 
   read var_continue
   if [ -z "$var_continue" ] || [ "$var_continue" != 'y' ]; then
@@ -33,7 +38,7 @@ function show_banner () {
   echo -e  "\tClassCat(R) Deep Learning Service"
   echo -e  "\tCopyright (C) 2015 ClassCat Co.,Ltd. All rights reserved."
   echo -en "\x1b[m"
-  echo -e  "\t\t\x1b[22;34m@Build Bazel\x1b[m: release: rc 0xff (2015/03/02)"
+  echo -e  "\t\t\x1b[22;34m@Device Query\x1b[m: release: rc 0xff (2015/03/02)"
   # echo -e  ""
 }
 
@@ -46,7 +51,6 @@ function confirm () {
 
   read var_continue
 }
-
 
 
 ###
@@ -62,23 +66,25 @@ function init () {
 }
 
 
-
 ###
-### BAZEL
+### Device Query
 ###
 
-function build_bazel () {
-  git clone https://github.com/bazelbuild/bazel.git
+function device_query () {
+  cp -a /usr/local/cuda/samples ./cuda.samples
 
-  cd bazel
+  cd ./cuda.samples/1_Utilities/deviceQuery
 
-  git checkout tags/0.1.5
+  make
 
-  time ./compile.sh
+  ./deviceQuery
 
-  install -o root -g root -m 0755 output/bazel /usr/local/bin/bazel.015
+  if [ "$?" != 0 ]; then
+    echo "Script aborted. ./deviceQuery failed."
+    exit 1
+  fi
 
-  ln -s /usr/local/bin/bazel.015 /usr/local/bin/bazel
+  make clean
 }
 
 
@@ -89,31 +95,28 @@ function build_bazel () {
 
 init
 
-
-### Working directory should be on /mnt.
-
-cd /mnt
-
-
-### Bazel ###
-build_bazel
-
-bazel version
+#### Working Dir should be set to /mnt.
+mkdir -p /mnt/cuda_test
+cd /mnt/cuda_test
 
 
-### CLEAN UP ###
+### check device query ###
+
+device_query
 
 cd /mnt
-rm -rf bazel
+rm -rf cuda_test
 
 
 echo ""
-echo "###################################################################"
-echo "# Bazel 0.1.5 has been installed onto /usr/local/bin successfully."
-echo "###################################################################"
+echo "################################################################"
+echo "# The execution of this script has been completed successfully."
+echo "# Then, run cctf-05_build_bazel.sh"
+echo "################################################################"
 echo ""
 
 
 exit 0
+
 
 ### End of Script ###

@@ -15,7 +15,7 @@
 function check_if_continue () {
   local var_continue
 
-  echo -ne "About to install CUDA & cuDNN for ClassCat(R) Deep Learning service. Continue ? (y/n) : " >&2
+  echo -ne "About to install CUDA & cuDNN for ClassCat Deep Learning service. Continue ? (y/n) : " >&2
 
   read var_continue
   if [ -z "$var_continue" ] || [ "$var_continue" != 'y' ]; then
@@ -146,10 +146,14 @@ rm -rf nvidia2
 ### Finally ###
 
 echo ""
-echo "#####################################################################"
-echo "# CUDA 7.5 & cnDNN v4 has been installed, please reboot the instance. "
-echo "# After reboot, you should check installation as root."
-echo "#####################################################################"
+echo "################################################################"
+echo "# The execution of this script has been completed successfully."
+echo "#"
+echo "# 1) To enable CUDA 7.5 & cnDNN v4, please reboot the instance"
+echo "# # sync && reboot "
+echo "#"
+echo "# 2) Then, run cctf04-device_query.sh."
+echo "################################################################"
 echo ""
 
 
