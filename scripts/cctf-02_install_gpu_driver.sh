@@ -18,7 +18,7 @@
 function check_if_continue () {
   local var_continue
 
-  echo -ne "About to install a GPU driver for ClassCat(R) Deep Learning service. Continue ? (y/n) : " >&2
+  echo -ne "About to install a GPU driver for ClassCat Deep Learning service. Continue ? (y/n) : " >&2
 
   read var_continue
   if [ -z "$var_continue" ] || [ "$var_continue" != 'y' ]; then
@@ -46,7 +46,7 @@ function confirm () {
   local var_continue
 
   echo ""
-  echo -ne "Make sure setting ../conf/\x1b[22;34mgpu_common.conf\x1b[m properly. Press return to continue (or ^C to exit) : " >&2
+  echo -ne "Make sure to set ../conf/\x1b[22;34mgpu_common.conf\x1b[m. Press return to continue (or ^C to exit) : " >&2
 
   read var_continue
 }
@@ -92,6 +92,12 @@ function install_nvidia_driver () {
   chmod +x NVIDIA-Linux-x86_64-352.63.run 
 
   ./NVIDIA-Linux-x86_64-352.63.run
+
+  if [ "$?" != 0 ]; then
+    echo "Script aborted. ./NVIDIA-Linux-x86_64-352.63.run failed."
+    exit 1
+  fi
+
 }
 
 
@@ -124,8 +130,12 @@ rm -rf nvidia
 
 echo ""
 echo "#####################################################################"
-echo "# DRM/NVIDIA driver has been installed, please Reboot the instance."
-echo "# Then, run install_cuda_and_cudnn.sh"
+echo "# The execution of this script has been completed successfully."
+echo "#"
+echo "# 1) To enable DRM/NVIDIA driver, please reboot the instance as follows :"
+echo "# # sync && reboot "
+echo "#"
+echo "# 2) Then, run cctf-03_install_cuda_and_cudnn.sh."
 echo "#####################################################################"
 echo ""
 

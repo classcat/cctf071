@@ -21,7 +21,7 @@
 function check_if_continue () {
   local var_continue
 
-  echo -ne "About to init an instance for ClassCat(R) Deep Learning service. Continue ? (y/n) : " >&2
+  echo -ne "About to init an instance for ClassCat Deep Learning service. Continue ? (y/n) : " >&2
 
   read var_continue
   if [ -z "$var_continue" ] || [ "$var_continue" != 'y' ]; then
@@ -49,7 +49,7 @@ function confirm () {
   local var_continue
 
   echo ""
-  echo -ne "Make sure setting ../conf/init_instance.conf properly. Press return to continue (or ^C to exit) : " >&2
+  echo -ne "Make sure to set ../conf/init_instance.conf. Press return to continue (or ^C to exit) : " >&2
 
   read var_continue
 }
@@ -237,19 +237,21 @@ add_guest_accounts
 ################
 
 echo ""
-echo "#############################################################################"
-echo "# Script completed successfully."
+echo "################################################################################"
+echo "# The execution of this script has been completed successfully."
 echo "#"
-echo -e "# >>> \$PASSWD is \x1b[22;34m${PASSWD}\x1b[m <<<"
-echo -e "# >>> BE SURE to MAKE a NOTE to KEEP IT.     <<<"
+echo "# 1) Make sure to make a note to keep the following password :"
+echo "#        \$PASSWD is \x1b[22;34m${PASSWD}\x1b[m"
 echo "#"
-echo "# To enable the latest kernel & a swap file, reboot the instance as follows."
+echo "# 2) To enable the latest kernel & a swap file, reboot the instance as follows."
 echo "# # sync && reboot "
-echo "#############################################################################"
+echo "#"
+echo "# 3) Then, run cctf-02_install_gpu_driver.sh."
+echo "################################################################################"
 echo ""
+
 
 exit 0
 
-\x1b[22;34m@Init Insance\x1b[m:
 
 ### End of Script ###
