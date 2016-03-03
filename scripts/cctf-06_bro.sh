@@ -130,7 +130,8 @@ rm -rf bro
 
 echo ""
 echo "###################################################################"
-echo "# Bro has been installed successfully."
+echo "# The execution of this script has been completed successfully."
+echo "# Then, run ../scripts_for_guest/cctf-07_device_query.sh.
 echo "###################################################################"
 echo ""
 

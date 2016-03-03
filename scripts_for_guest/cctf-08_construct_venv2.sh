@@ -73,8 +73,6 @@ function create_venv_container () {
   virtualenv venv2_tf071
 
   echo ". venv2_tf071/bin/activate" >> ~/.bashrc
-
-
 }
 
 
@@ -107,12 +105,16 @@ create_venv_container
 
 pip_install_pkgs
 
+cd ~
+
 
 echo ""
-echo "######################################"
-echo "# VirtualEnv Container has been constructed successfully "
-echo "# Please make sure login this account
-echo "######################################"
+echo "################################################################"
+echo "# The execution of this script has been completed successfully."
+echo "# 1) re-login to this account to activate a container."
+echo "#" 
+echo "# 2) Then, run cctf-09_install_tf_v071.sh."
+echo "################################################################"
 echo ""
 
 exit 0
