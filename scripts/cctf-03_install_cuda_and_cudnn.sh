@@ -6,6 +6,7 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 03-mar-16 : changed the url.
 # 02-mar-16 : fixed.
 # 29-feb-16 : created.
 # -----------------------------------------------------------------
@@ -81,7 +82,7 @@ function install_cuda () {
 ###
 
 function install_cudnn () {
-  s3cmd get s3://classcat-com/nvidia/cudnn-7.0-linux-x64-v4.0-prod.tgz
+  s3cmd get s3://cctf-classcat-com/nvidia/cudnn-7.0-linux-x64-v4.0-prod.tgz
 
   tar xfz ./cudnn-7.0-linux-x64-v4.0-prod.tgz 
 

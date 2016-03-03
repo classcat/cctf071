@@ -6,6 +6,7 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 03-mar-16 : changed the url.
 # 02-mar-16 : fixed.
 # 29-feb-16 : created.
 # -----------------------------------------------------------------
@@ -69,7 +70,7 @@ function init () {
 ###
 
 function install_drm_driver () {
-  s3cmd get s3://classcat-com/ubuntu-kernel/drm.ko.3.13.0-${KERNEL_REVISION}-generic drm.ko
+  s3cmd get s3://cctf-classcat-com/ubuntu-kernel/drm.ko.3.13.0-${KERNEL_REVISION}-generic drm.ko
 
   mkdir -p /lib/modules/3.13.0-${KERNEL_REVISION}-generic/kernel/drivers/gpu/drm
 

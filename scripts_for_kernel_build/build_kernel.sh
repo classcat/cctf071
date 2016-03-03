@@ -5,6 +5,7 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 03-mar-16 : changed the url.
 # 29-feb-16 : created.
 # -----------------------------------------------------------------
 
@@ -30,7 +31,7 @@ time make -j ${NUMBER_OF_CORES}
 ### Store it to s3.
 ###
 
-s3cmd put drivers/gpu/drm/drm.ko s3://classcat-com/ubuntu-kernel/drm.ko.3.13.0-${KERNEL_REVISION}-generic
+s3cmd put drivers/gpu/drm/drm.ko s3://cctf-classcat-com/ubuntu-kernel/drm.ko.3.13.0-${KERNEL_REVISION}-generic
 
 
 ### End of Script ###
