@@ -31,6 +31,7 @@ function check_if_continue () {
   fi
 }
 
+
 function show_banner () {
   clear
 
@@ -236,14 +237,15 @@ add_guest_accounts
 ################
 
 echo ""
-echo "#########################################################################"
-echo "# Jobs on the script has been completed successfully."
+echo "#############################################################################"
+echo "# Script completed successfully."
 echo "#"
 echo -e "# >>> \$PASSWD is \x1b[22;34m${PASSWD}\x1b[m <<<"
 echo -e "# >>> BE SURE to MAKE a NOTE to KEEP IT.     <<<"
 echo "#"
-echo "# To enable the latest kernel & a swap file, please REBOOT the instance."
-echo "#########################################################################"
+echo "# To enable the latest kernel & a swap file, reboot the instance as follows."
+echo "# # sync && reboot "
+echo "#############################################################################"
 echo ""
 
 exit 0
