@@ -5,16 +5,14 @@
 ### Copyright (C) 2016 ClassCat(R) Co.,Ltd. All righs Reserved. ###
 ###################################################################
 
-# --- TODO --------------------------------------------------------
-# Jupyter
-
 # --- Descrption --------------------------------------------------
-# Run on the account - tensorflow070.
+# o Run as the guest account: tensorflow.
 #
 # --- TODO --------------------------------------------------------
 # o PS1 (01-mar-16)
 #
 # --- HISTORY -----------------------------------------------------
+# 04-mar-16 : beta.
 # 29-feb-16 : created.
 # -----------------------------------------------------------------
 
@@ -50,7 +48,7 @@ function confirm () {
   local var_continue
 
   echo ""
-  echo -ne "Press return to continue (or ^C to exit) : " >&2
+  echo -ne "This script must be run as 'tensorflow' account. Press return to continue (or ^C to exit) : " >&2
 
   read var_continue
 }
@@ -69,6 +67,11 @@ function init () {
   confirm
 }
 
+
+
+###
+### Construct VirtualEnv
+###
 
 function create_venv_container () {
   virtualenv venv2_tf071
@@ -111,12 +114,16 @@ cd ~
 
 
 echo ""
-echo "#######################################################"
+echo "####################################################################"
 echo "# Script Execution has been completed successfully."
-echo "# 1) Re-login to this account to activate a container."
+echo "# 1) Be sure to 'Re-login' to this account to activate a container."
 echo "#" 
-echo "# 2) Then, run cctf-09_install_tf_v071.sh."
-echo "#######################################################"
+echo "# 2) Then, run cctf-09_install_tf_v071.sh as 'tensorflow' account."
+echo "####################################################################"
 echo ""
 
+
 exit 0
+
+
+### End of Script ###

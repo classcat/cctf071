@@ -6,20 +6,17 @@
 ###################################################################
 
 # --- Descrption --------------------------------------------------
-# Run on the account: tensorflow.
-#
-# --- TODO --------------------------------------------------------
-# o PS1 (01-mar-16)
+# o Run as the guest account: tensorflow.
 #
 # --- HISTORY -----------------------------------------------------
-# 29-feb-16 : created.
+# 04-mar-16 : beta.
 # -----------------------------------------------------------------
 
 
 function check_if_continue () {
   local var_continue
 
-  echo -ne "About to query device for ClassCat Deep Learning service. Continue ? (y/n) : " >&2
+  echo -ne "About to run query device for ClassCat Deep Learning service. Continue ? (y/n) : " >&2
 
   read var_continue
   if [ -z "$var_continue" ] || [ "$var_continue" != 'y' ]; then
@@ -38,7 +35,7 @@ function show_banner () {
   echo -e  "\tClassCat(R) Deep Learning Service"
   echo -e  "\tCopyright (C) 2015 ClassCat Co.,Ltd. All rights reserved."
   echo -en "\x1b[m"
-  echo -e  "\t\t\x1b[22;34m@Device Query\x1b[m: release: rc 0xff (2015/03/02)"
+  echo -e  "\t\t\x1b[22;34m@Device Query\x1b[m: release: beta (2015/03/04)"
   # echo -e  ""
 }
 
@@ -47,7 +44,7 @@ function confirm () {
   local var_continue
 
   echo ""
-  echo -ne "Press return to continue (or ^C to exit) : " >&2
+  echo -ne "This script must be run as 'tensorflow' account. Press return to continue (or ^C to exit) : " >&2
 
   read var_continue
 }
@@ -64,6 +61,7 @@ function init () {
 
   confirm
 }
+
 
 
 ###
@@ -104,10 +102,10 @@ device_query
 cd ~
 
 echo ""
-echo "####################################################"
+echo "################################################################"
 echo "# Script execution has been completed successfully."
-echo "# Then, run cctf-08_construct_venv2.sh."
-echo "####################################################"
+echo "# Then, run cctf-08_construct_venv2.sh as 'tensorflow' account."
+echo "################################################################"
 echo ""
 
 
