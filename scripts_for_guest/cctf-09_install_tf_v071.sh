@@ -8,10 +8,8 @@
 # --- Descrption --------------------------------------------------
 # Run on the account - tensorflow070.
 #
-# --- TODO --------------------------------------------------------
-# o PS1 (01-mar-16)
-#
 # --- HISTORY -----------------------------------------------------
+# 04-mar-16 : beta.
 # 29-feb-16 : created.
 # -----------------------------------------------------------------
 
@@ -54,7 +52,7 @@ function show_banner () {
   echo -e  "\tClassCat(R) Deep Learning Service"
   echo -e  "\tCopyright (C) 2015 ClassCat Co.,Ltd. All rights reserved."
   echo -en "\x1b[m"
-  echo -e  "\t\t\x1b[22;34m@Insall TensorFlow\x1b[m: release: rc 0xff (2015/03/02)"
+  echo -e  "\t\t\x1b[22;34m@Insall TensorFlow\x1b[m: release: beta (2015/03/04)"
   # echo -e  ""
 }
 
@@ -63,7 +61,7 @@ function confirm () {
   local var_continue
 
   echo ""
-  echo -ne "Press return to continue (or ^C to exit) : " >&2
+  echo -ne "This script must be run as 'tensorflow' account. Press return to continue (or ^C to exit) : " >&2
 
   read var_continue
 }
@@ -83,6 +81,11 @@ function init () {
 }
 
 
+
+###
+### TensorFlow 0.7.1
+###
+
 function clone_and_config_tensorflow071 () {
   git clone --recurse-submodules https://github.com/tensorflow/tensorflow tensorflow.071
 
@@ -101,6 +104,11 @@ function clone_and_config_tensorflow071 () {
 }
 
 
+
+###
+### Build Examples
+###
+
 function start_build () {
   local var_continue
 
@@ -117,16 +125,29 @@ function build_example () {
   cd ~/tensorflow
 
   bazel build -c opt --config=cuda //tensorflow/cc:tutorials_example_trainer
+  if [ "$?" != 0 ]; then
+    echo "Script aborted. bazel build cc:tutorials_example_trainer failed."
+    exit 1
+  fi
 
   bazel-bin/tensorflow/cc/tutorials_example_trainer --use_gpu
+  if [ "$?" != 0 ]; then
+    echo "Script aborted. run cc/tutorials_example_trainer failed."
+    exit 1
+  fi
 }
 
+
+
+###
+### Build Pip Package
+###
 
 function start_build2 () {
   local var_continue
 
   echo ""
-  echo -ne "Start Pip package and keep it. Press return to continue : " >&2
+  echo -ne "Start Pip package and store it. Press return to continue : " >&2
 
   read var_continue
 }
@@ -138,9 +159,32 @@ function build_pip_package () {
   cd ~/tensorflow
 
   bazel build -c opt --config=cuda //tensorflow/tools/pip_package:build_pip_package
+  if [ "$?" != 0 ]; then
+    echo "Script aborted. bazel build pip_package:build_pip_package failed."
+    exit 1
+  fi
 
   bazel-bin/tensorflow/tools/pip_package/build_pip_package ~/.tf_pip_pkg
+  if [ "$?" != 0 ]; then
+    echo "Script aborted. bazel-bin/tensorflow/tools/pip_package/build_pip_package ~/.tf_pip_pkg failed."
+    exit 1
+  fi
 }
+
+
+
+###
+### Install TensorFlow Pip Package
+###
+
+function install_tensorflow () {
+  pip install ~/.tf_pip_pkg/tensorflow-0.7.1-py2-none-any.whl
+  if [ "$?" != 0 ]; then
+    echo "Script aborted.   pip install tensorflow-0.7.1-py2-none-any.whl failed."
+    exit 1
+  fi
+}
+
 
 
 ###################
@@ -157,14 +201,18 @@ cd ~
 
 build_example
 
+cd ~
+
 build_pip_package
 
-# keep it
-cp -p  ~/.tf_pip_pkg/tensorflow-0.7.1-py2-none-any.whl /var/tmp/tf_pip_pkg.071
-
-pip install ~/.tf_pip_pkg/tensorflow-0.7.1-py2-none-any.whl
-
 cd ~
+
+install_tensorflow
+
+
+# Backup it further.
+cp -a  ~/.tf_pip_pkg /var/tmp/tf_pip_pkg.071.bak
+
 
 echo ""
 echo "####################################################"

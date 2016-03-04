@@ -6,6 +6,7 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 04-mar-16 : beta.
 # 29-feb-16 : created.
 # -----------------------------------------------------------------
 
@@ -16,7 +17,7 @@
 function check_if_continue () {
   local var_continue
 
-  echo -ne "About to install tensorflow for ClassCat Deep Learning service. Continue ? (y/n) : " >&2
+  echo -ne "About to set s3 for ClassCat Deep Learning service. Continue ? (y/n) : " >&2
 
   read var_continue
   if [ -z "$var_continue" ] || [ "$var_continue" != 'y' ]; then
@@ -26,6 +27,7 @@ function check_if_continue () {
   fi
 }
 
+
 function show_banner () {
   clear
 
@@ -34,7 +36,7 @@ function show_banner () {
   echo -e  "\tClassCat(R) Deep Learning Service"
   echo -e  "\tCopyright (C) 2015 ClassCat Co.,Ltd. All rights reserved."
   echo -en "\x1b[m"
-  echo -e  "\t\t\x1b[22;34m@Insall TensorFlow\x1b[m: release: rc 0xff (2015/03/02)"
+  echo -e  "\t\t\x1b[22;34m@Set S3\x1b[m: release: rc 0xff (2015/03/02)"
   # echo -e  ""
 }
 
@@ -43,7 +45,7 @@ function confirm () {
   local var_continue
 
   echo ""
-  echo -ne "Press return to continue (or ^C to exit) : " >&2
+  echo -ne "This script must be run as 'tensorflow' account. Press return to continue (or ^C to exit) : " >&2
 
   read var_continue
 }
@@ -87,9 +89,12 @@ install_and_config_s3cmd
 echo ""
 echo "####################################################"
 echo "# Script execution has been completed successfully."
+echo "# Congrats ! you have completed all tasks."
 echo "####################################################"
 echo ""
 
 
-
 exit 0
+
+
+### End of Script ###

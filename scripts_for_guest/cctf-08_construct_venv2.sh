@@ -39,7 +39,7 @@ function show_banner () {
   echo -e  "\tClassCat(R) Deep Learning Service"
   echo -e  "\tCopyright (C) 2015 ClassCat Co.,Ltd. All rights reserved."
   echo -en "\x1b[m"
-  echo -e  "\t\t\x1b[22;34m@Construct VirutualEnv\x1b[m: release: rc 0xff (2015/03/02)"
+  echo -e  "\t\t\x1b[22;34m@Construct VirutualEnv\x1b[m: release: beta (2015/03/04)"
   # echo -e  ""
 }
 
@@ -85,17 +85,48 @@ function pip_install_pkgs () {
   . venv2_tf071/bin/activate
 
   pip install wheel
+  if [ "$?" != 0 ]; then
+    echo "Script aborted. pip install wheel failed."
+    exit 1
+  fi
 
   pip install numpy
+  if [ "$?" != 0 ]; then
+    echo "Script aborted. pip install numpy failed."
+    exit 1
+  fi
 
   pip install scipy
+  if [ "$?" != 0 ]; then
+    echo "Script aborted. pip install scipy failed."
+    exit 1
+  fi
 
   pip install pandas
+  if [ "$?" != 0 ]; then
+    echo "Script aborted. pip install pandas failed."
+    exit 1
+  fi
 
   pip install jupyter ipython
+  if [ "$?" != 0 ]; then
+    echo "Script aborted. pip install jupyter failed."
+    exit 1
+  fi
+
+  pip install ipython
+  if [ "$?" != 0 ]; then
+    echo "Script aborted. pip install ipython failed."
+    exit 1
+  fi
 
   pip install matplotlib
+  if [ "$?" != 0 ]; then
+    echo "Script aborted. pip install matplotlib failed."
+    exit 1
+  fi
 }
+
 
 
 ###################
