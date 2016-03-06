@@ -6,6 +6,7 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 06-mar-16 : esc sequence fixed.
 # 03-mar-16 : beta.
 # 02-mar-16 : pkgs for bro.
 # 02-mar-16 : pkgs for nvidia driver build.
@@ -241,8 +242,8 @@ echo ""
 echo "################################################################################"
 echo "# Script execution has been completed successfully."
 echo "#"
-echo "# 1) Make sure to keep the following password by making a note :"
-echo "#        \$PASSWD is \x1b[22;34m${PASSWD}\x1b[m"
+echo -e "# 1) Make sure to keep the following password by making a note :"
+echo -e "#        \$PASSWD is \x1b[22;34m${PASSWD}\x1b[m"
 echo "#"
 echo "# 2) To enable the latest kernel & a swap file, reboot the instance as follows."
 echo "#        # sync && reboot "
