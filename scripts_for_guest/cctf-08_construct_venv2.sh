@@ -12,6 +12,7 @@
 # o PS1 (01-mar-16)
 #
 # --- HISTORY -----------------------------------------------------
+# 06-mar-16 : modify pip install pkgs.
 # 04-mar-16 : beta.
 # 29-feb-16 : created.
 # -----------------------------------------------------------------
@@ -108,7 +109,7 @@ function pip_install_pkgs () {
     exit 1
   fi
 
-  pip install jupyter ipython
+  pip install jupyter
   if [ "$?" != 0 ]; then
     echo "Script aborted. pip install jupyter failed."
     exit 1
