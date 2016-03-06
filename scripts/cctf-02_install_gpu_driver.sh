@@ -6,6 +6,7 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 06-mar-16 : typo fixed.
 # 03-mar-16 : beta.
 # 03-mar-16 : changed the url.
 # 02-mar-16 : fixed.
@@ -136,7 +137,7 @@ rm -rf nvidia
 
 echo ""
 echo "#####################################################################"
-echo "# Scritp execution has been completed successfully."
+echo "# Script execution has been completed successfully."
 echo "#"
 echo "# 1) To enable DRM/NVIDIA driver, please reboot the instance as follows :"
 echo "#        # sync && reboot "
