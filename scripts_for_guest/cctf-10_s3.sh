@@ -6,13 +6,14 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 06-mar-16 : minor bug fix.
 # 06-mar-16: sed, use space instead of '/' as delimiter.
 # 04-mar-16 : beta.
 # 29-feb-16 : created.
 # -----------------------------------------------------------------
 
 
-../conf_for_guest/s3_for_guest.conf
+. ../conf_for_guest/s3_for_guest.conf
 
 
 function check_if_continue () {
@@ -72,8 +73,8 @@ function init () {
 function install_and_config_s3cmd () {
   install -o tensorflow -g tensorflow ../assets/s3cfg.north-east-1 ~/.s3cfg
 
-  sed -i.tmpl -e "s ^access_key\s*=.* access_key=${S3CMD_ACCESS_KEY_FOR_GUEST} g" /root/.s3cfg
-  sed -i      -e "s ^secret_key\s*=.* secret_key=${S3CMD_SECRET_KEY_FOR_GUEST} g" /root/.s3cfg
+  sed -i.tmpl -e "s ^access_key\s*=.* access_key=${S3CMD_ACCESS_KEY_FOR_GUEST} g" ~/.s3cfg
+  sed -i      -e "s ^secret_key\s*=.* secret_key=${S3CMD_SECRET_KEY_FOR_GUEST} g" ~/.s3cfg
   #sed -i.tmpl -e "s/^access_key\s*=.*/access_key = ${S3CMD_ACCESS_KEY_FOR_GUEST}/g" /root/.s3cfg
   #sed -i      -e "s/^secret_key\s*=.*/secret_key = ${S3CMD_SECRET_KEY_FOR_GUEST}/g" /root/.s3cfg
 }
