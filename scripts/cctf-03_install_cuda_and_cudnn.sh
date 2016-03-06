@@ -93,6 +93,7 @@ function install_cudnn () {
 }
 
 
+
 ###
 ### Configure BashRC
 ###
