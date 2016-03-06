@@ -6,6 +6,7 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 06-mar-16 : pip pkgs for scipy, jupyter, matplotlib.
 # 06-mar-16 : change delimiter to space.
 # 06-mar-16 : esc sequence fixed.
 # 03-mar-16 : beta.
@@ -164,6 +165,16 @@ function install_pkgs_for_nvidia_driver () {
 
 function install_pkgs_for_venv () {
   apt-get install -y python-pip python-dev python-virtualenv
+
+  # for scipy
+  apt-get install -y gfortran
+  apt-get install -y liblapack-dev libblas-dev
+
+  # for jupyter
+  apt-get install -y libzmq3 libzmq3-dev
+
+  # for matplotlib
+  apt-get install -y libfreetype6 libfreetype6-dev
 }
 
 
