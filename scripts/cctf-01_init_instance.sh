@@ -6,6 +6,7 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 06-mar-16 : change delimiter to space.
 # 06-mar-16 : esc sequence fixed.
 # 03-mar-16 : beta.
 # 02-mar-16 : pkgs for bro.
@@ -140,8 +141,11 @@ function install_and_config_s3cmd () {
 
   install -o root -g root ../assets/s3cfg.north-east-1 /root/.s3cfg
 
-  sed -i.tmpl -e "s/^access_key\s*=.*/access_key = ${S3_ACCESS_KEY_TO_CCTF}/g" /root/.s3cfg
-  sed -i      -e "s/^secret_key\s*=.*/secret_key = ${S3_SECRET_KEY_TO_CCTF}/g" /root/.s3cfg
+  # change delimiter to space.
+  sed -i.tmpl -e "s ^access_key\s*=.* access_key=${S3_ACCESS_KEY_TO_CCTF} g" /root/.s3cfg
+  sed -i      -e "s ^secret_key\s*=.* secret_key=${S3_SECRET_KEY_TO_CCTF} g" /root/.s3cfg
+  #sed -i.tmpl -e "s/^access_key\s*=.*/access_key = ${S3_ACCESS_KEY_TO_CCTF}/g" /root/.s3cfg
+  #sed -i      -e "s/^secret_key\s*=.*/secret_key = ${S3_SECRET_KEY_TO_CCTF}/g" /root/.s3cfg
 }
 
 
