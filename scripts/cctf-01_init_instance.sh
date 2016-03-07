@@ -6,6 +6,8 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 07-mar-16 : beta2 fixed.
+# 07-mar-16 : tensorflow2, 3 account added.
 # 06-mar-16 : pip pkgs for scipy, jupyter, matplotlib.
 # 06-mar-16 : change delimiter to space.
 # 06-mar-16 : esc sequence fixed.
@@ -42,9 +44,9 @@ function show_banner () {
   echo -e  ""
   echo -en "\x1b[22;36m"
   echo -e  "\tClassCat(R) Deep Learning Service"
-  echo -e  "\tCopyright (C) 2015 ClassCat Co.,Ltd. All rights reserved."
+  echo -e  "\tCopyright (C) 2016 ClassCat Co.,Ltd. All rights reserved."
   echo -en "\x1b[m"
-  echo -e  "\t\t\x1b[22;34m@Init Insance\x1b[m: release: beta (2015/03/03)"
+  echo -e  "\t\t\x1b[22;34m@Init Insance\x1b[m: release: beta 2 (03/07/2016)"
   # echo -e  ""
 }
 
@@ -218,11 +220,11 @@ PASSWD=`cat /dev/urandom | tr -dc "0-9" | fold -w 5 | head -n 1`
 function add_guest_accounts () {
   #apt-get install -y pwgen
 
-  useradd tensorflow  -c 'TensorFlow'              -m -s /bin/bash
-  useradd tensorflow2 -c 'TensorFlow 2 (Reserved)' -m -s /bin/bash
+  useradd tensorflow2 -c 'TensorFlow for Python 2' -m -s /bin/bash
+  useradd tensorflow3 -c 'TensorFlow for Python 3' -m -s /bin/bash
 
-  echo "tensorflow:ClassCat-${PASSWD}"  | chpasswd
   echo "tensorflow2:ClassCat-${PASSWD}" | chpasswd
+  echo "tensorflow3:ClassCat-${PASSWD}" | chpasswd
 }
 
 
