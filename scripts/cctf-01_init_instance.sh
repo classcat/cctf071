@@ -6,6 +6,7 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 07-mar-16 : python3-dev
 # 07-mar-16 : beta2 fixed.
 # 07-mar-16 : tensorflow2, 3 account added.
 # 06-mar-16 : pip pkgs for scipy, jupyter, matplotlib.
@@ -166,7 +167,7 @@ function install_pkgs_for_nvidia_driver () {
 ###
 
 function install_pkgs_for_venv () {
-  apt-get install -y python-pip python-dev python-virtualenv
+  apt-get install -y python-pip python-dev python3-dev python-virtualenv
 
   # for scipy
   apt-get install -y gfortran
