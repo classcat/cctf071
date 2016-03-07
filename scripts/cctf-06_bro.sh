@@ -46,7 +46,6 @@ function confirm () {
   local var_continue
 
   echo ""
-  echo -ne "Press return to continue (or ^C to exit) : " >&2
   echo -ne "Make sure to set ../conf/\x1b[22;34mpostfix.conf\x1b[m. Press return to continue (or ^C to exit) : " >&2
 
   read var_continue
