@@ -147,12 +147,12 @@ cd ~
 
 
 echo ""
-echo "###############################################################################"
+echo "#############################################################################"
 echo "# Script Execution has been completed successfully."
 echo "# 1) Be sure to 'Re-login' to this account to activate a container."
 echo "#" 
-echo "# 2) Then, run cctf-13_install_tf_v071_into_venv3.sh as 'tensorflow3' account."
-echo "###############################################################################"
+echo "# 2) Then, run cctf-13_install_tf071_into_venv3.sh as 'tensorflow3' account."
+echo "#############################################################################"
 echo ""
 
 
