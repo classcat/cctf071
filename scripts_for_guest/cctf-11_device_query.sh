@@ -9,6 +9,7 @@
 # o Run as the guest account: tensorflow.
 #
 # --- HISTORY -----------------------------------------------------
+# 07-mar-16 : beta 2.
 # 04-mar-16 : beta.
 # -----------------------------------------------------------------
 
@@ -102,10 +103,10 @@ device_query
 cd ~
 
 echo ""
-echo "################################################################"
+echo "#################################################################"
 echo "# Script execution has been completed successfully."
-echo "# Then, run cctf-12_construct_venv3.sh as 'tensorflow' account."
-echo "################################################################"
+echo "# Then, run cctf-12_construct_venv3.sh as 'tensorflow3' account."
+echo "#################################################################"
 echo ""
 
 

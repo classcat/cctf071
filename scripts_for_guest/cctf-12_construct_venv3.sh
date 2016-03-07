@@ -12,6 +12,7 @@
 # o PS1 (01-mar-16)
 #
 # --- HISTORY -----------------------------------------------------
+# 07-mar-16 : beta 2.
 # 06-mar-16 : modify pip install pkgs.
 # 04-mar-16 : beta.
 # 29-feb-16 : created.
@@ -21,7 +22,7 @@
 function check_if_continue () {
   local var_continue
 
-  echo -ne "About to construct virtualenv for ClassCat Deep Learning service. Continue ? (y/n) : " >&2
+  echo -ne "About to construct virtualenv3 for ClassCat Deep Learning service. Continue ? (y/n) : " >&2
 
   read var_continue
   if [ -z "$var_continue" ] || [ "$var_continue" != 'y' ]; then
@@ -38,9 +39,9 @@ function show_banner () {
   echo -e  ""
   echo -en "\x1b[22;36m"
   echo -e  "\tClassCat(R) Deep Learning Service"
-  echo -e  "\tCopyright (C) 2015 ClassCat Co.,Ltd. All rights reserved."
+  echo -e  "\tCopyright (C) 2016 ClassCat Co.,Ltd. All rights reserved."
   echo -en "\x1b[m"
-  echo -e  "\t\t\x1b[22;34m@Construct VirutualEnv\x1b[m: release: beta (2015/03/04)"
+  echo -e  "\t\t\x1b[22;34m@Construct VirutualEnv 3\x1b[m: release: beta (03/07/2016)"
   # echo -e  ""
 }
 
@@ -49,7 +50,7 @@ function confirm () {
   local var_continue
 
   echo ""
-  echo -ne "This script must be run as 'tensorflow' account. Press return to continue (or ^C to exit) : " >&2
+  echo -ne "This script must be run as 'tensorflow3' account. Press return to continue (or ^C to exit) : " >&2
 
   read var_continue
 }
@@ -75,15 +76,15 @@ function init () {
 ###
 
 function create_venv_container () {
-  virtualenv venv2_tf071
+  virtualenv --python /usr/bin/python3 venv3_tf071
 
   echo "" >> ~/.bashrc
-  echo ". venv2_tf071/bin/activate" >> ~/.bashrc
+  echo ". venv3_tf071/bin/activate" >> ~/.bashrc
 }
 
 
 function pip_install_pkgs () {
-  . venv2_tf071/bin/activate
+  . venv3_tf071/bin/activate
 
   pip install wheel
   if [ "$?" != 0 ]; then
@@ -146,12 +147,12 @@ cd ~
 
 
 echo ""
-echo "####################################################################"
+echo "###############################################################################"
 echo "# Script Execution has been completed successfully."
 echo "# 1) Be sure to 'Re-login' to this account to activate a container."
 echo "#" 
-echo "# 2) Then, run cctf-09_install_tf_v071.sh as 'tensorflow' account."
-echo "####################################################################"
+echo "# 2) Then, run cctf-13_install_tf_v071_into_venv3.sh as 'tensorflow3' account."
+echo "###############################################################################"
 echo ""
 
 
