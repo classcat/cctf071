@@ -148,7 +148,7 @@ function start_build2 () {
   local var_continue
 
   echo ""
-  echo -ne "Start Pip package and store it. Press return to continue : " >&2
+  echo -ne "Start building Pip package and store it. Press return to continue : " >&2
 
   read var_continue
 }
