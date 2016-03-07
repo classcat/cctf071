@@ -72,7 +72,7 @@ function init () {
 ###
 
 function install_and_config_s3cmd () {
-  install -o tensorflow -g tensorflow ../assets/s3cfg.north-east-1 ~/.s3cfg
+  install -o tensorflow3 -g tensorflow3 ../assets/s3cfg.north-east-1 ~/.s3cfg
 
   sed -i.tmpl -e "s ^access_key\s*=.* access_key=${S3CMD_ACCESS_KEY_FOR_GUEST} g" ~/.s3cfg
   sed -i      -e "s ^secret_key\s*=.* secret_key=${S3CMD_SECRET_KEY_FOR_GUEST} g" ~/.s3cfg
