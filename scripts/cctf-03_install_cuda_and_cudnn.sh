@@ -106,12 +106,12 @@ function config_bashrc_for_cuda () {
   echo "export PATH=$PATH:\$CUDA_HOME/bin" >> /root/.bashrc
   echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$CUDA_HOME/lib64:/usr/local/cudnn-r4/cuda/lib64" >> /root/.bashrc
 
-  echo "" >> /home/tensorflow/.bashrc
+  echo "" >> /home/tensorflow2/.bashrc
   echo "export CUDA_HOME=/usr/local/cuda"  >> /home/tensorflow2/.bashrc
   echo "export PATH=$PATH:\$CUDA_HOME/bin" >> /home/tensorflow2/.bashrc
   echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$CUDA_HOME/lib64:/usr/local/cudnn-r4/cuda/lib64" >> /home/tensorflow2/.bashrc
 
-  echo "" >> /home/tensorflow2/.bashrc
+  echo "" >> /home/tensorflow3/.bashrc
   echo "export CUDA_HOME=/usr/local/cuda"  >> /home/tensorflow3/.bashrc
   echo "export PATH=$PATH:\$CUDA_HOME/bin" >> /home/tensorflow3/.bashrc
   echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$CUDA_HOME/lib64:/usr/local/cudnn-r4/cuda/lib64" >> /home/tensorflow3/.bashrc
