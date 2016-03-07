@@ -6,6 +6,7 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 07-mar-16 : beta 2.
 # 06-mar-16 : minor bug fix.
 # 06-mar-16: sed, use space instead of '/' as delimiter.
 # 04-mar-16 : beta.
@@ -36,9 +37,9 @@ function show_banner () {
   echo -e  ""
   echo -en "\x1b[22;36m"
   echo -e  "\tClassCat(R) Deep Learning Service"
-  echo -e  "\tCopyright (C) 2015 ClassCat Co.,Ltd. All rights reserved."
+  echo -e  "\tCopyright (C) 2016 ClassCat Co.,Ltd. All rights reserved."
   echo -en "\x1b[m"
-  echo -e  "\t\t\x1b[22;34m@Set S3\x1b[m: release: rc 0xff (2015/03/02)"
+  echo -e  "\t\t\x1b[22;34m@Set S3\x1b[m: release: beta 2 (03/07/2016)"
   # echo -e  ""
 }
 
@@ -47,7 +48,7 @@ function confirm () {
   local var_continue
 
   echo ""
-  echo -ne "This script must be run as 'tensorflow' account. Press return to continue (or ^C to exit) : " >&2
+  echo -ne "This script must be run as 'tensorflow2' account. Press return to continue (or ^C to exit) : " >&2
 
   read var_continue
 }
@@ -93,7 +94,7 @@ install_and_config_s3cmd
 echo ""
 echo "####################################################"
 echo "# Script execution has been completed successfully."
-echo "# Congrats ! you have completed all tasks."
+echo "# You have completed tasks for tensorflow2 account."
 echo "####################################################"
 echo ""
 
