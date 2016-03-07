@@ -9,6 +9,7 @@
 # Run on the account - tensorflow070.
 #
 # --- HISTORY -----------------------------------------------------
+# 07-mar-16 : beta 2.
 # 04-mar-16 : beta.
 # 29-feb-16 : created.
 # -----------------------------------------------------------------
@@ -50,9 +51,9 @@ function show_banner () {
   echo -e  ""
   echo -en "\x1b[22;36m"
   echo -e  "\tClassCat(R) Deep Learning Service"
-  echo -e  "\tCopyright (C) 2015 ClassCat Co.,Ltd. All rights reserved."
+  echo -e  "\tCopyright (C) 2016 ClassCat Co.,Ltd. All rights reserved."
   echo -en "\x1b[m"
-  echo -e  "\t\t\x1b[22;34m@Insall TensorFlow\x1b[m: release: beta (2015/03/04)"
+  echo -e  "\t\t\x1b[22;34m@Insall TensorFlow\x1b[m: release: beta 2 (03/07/2016)"
   # echo -e  ""
 }
 
@@ -61,7 +62,7 @@ function confirm () {
   local var_continue
 
   echo ""
-  echo -ne "This script must be run as 'tensorflow' account. Press return to continue (or ^C to exit) : " >&2
+  echo -ne "This script must be run as 'tensorflow3' account. Press return to continue (or ^C to exit) : " >&2
 
   read var_continue
 }
@@ -178,7 +179,9 @@ function build_pip_package () {
 ###
 
 function install_tensorflow () {
-  pip install ~/.tf_pip_pkg/tensorflow-0.7.1-py2-none-any.whl
+  pip install ~/.tf_pip_pkg/tensorflow-0.7.1-py3-none-any.whl
+  # pip install ~/.tf_pip_pkg/tensorflow-0.7.1-py2-none-any.whl
+
   if [ "$?" != 0 ]; then
     echo "Script aborted.   pip install tensorflow-0.7.1-py2-none-any.whl failed."
     exit 1
@@ -211,7 +214,7 @@ install_tensorflow
 
 
 # Backup it further.
-cp -a  ~/.tf_pip_pkg /var/tmp/tf_pip_pkg.071.bak
+cp -a  ~/.tf_pip_pkg /var/tmp/tf_pip_pkg.071_p3.bak
 
 
 echo ""
