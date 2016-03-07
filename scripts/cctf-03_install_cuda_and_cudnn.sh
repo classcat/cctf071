@@ -6,6 +6,7 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 07-mar-16 : beta 2 fixed.
 # 03-mar-16 : Beta.
 # 03-mar-16 : changed the url.
 # 02-mar-16 : fixed.
@@ -33,9 +34,9 @@ function show_banner () {
   echo -e  ""
   echo -en "\x1b[22;36m"
   echo -e  "\tClassCat(R) Deep Learning Service"
-  echo -e  "\tCopyright (C) 2015 ClassCat Co.,Ltd. All rights reserved."
+  echo -e  "\tCopyright (C) 2016 ClassCat Co.,Ltd. All rights reserved."
   echo -en "\x1b[m"
-  echo -e  "\t\t\x1b[22;34m@Install CUDA & cuDNN\x1b[m: release: rc 0xff (2015/03/02)"
+  echo -e  "\t\t\x1b[22;34m@Install CUDA & cuDNN\x1b[m: release: beta 2 (03/07/2016)"
   # echo -e  ""
 }
 
@@ -48,6 +49,7 @@ function confirm () {
 
   read var_continue
 }
+
 
 
 ###
@@ -105,14 +107,14 @@ function config_bashrc_for_cuda () {
   echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$CUDA_HOME/lib64:/usr/local/cudnn-r4/cuda/lib64" >> /root/.bashrc
 
   echo "" >> /home/tensorflow/.bashrc
-  echo "export CUDA_HOME=/usr/local/cuda"  >> /home/tensorflow/.bashrc
-  echo "export PATH=$PATH:\$CUDA_HOME/bin" >> /home/tensorflow/.bashrc
-  echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$CUDA_HOME/lib64:/usr/local/cudnn-r4/cuda/lib64" >> /home/tensorflow/.bashrc
-
-  echo "" >> /home/tensorflow2/.bashrc
   echo "export CUDA_HOME=/usr/local/cuda"  >> /home/tensorflow2/.bashrc
   echo "export PATH=$PATH:\$CUDA_HOME/bin" >> /home/tensorflow2/.bashrc
   echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$CUDA_HOME/lib64:/usr/local/cudnn-r4/cuda/lib64" >> /home/tensorflow2/.bashrc
+
+  echo "" >> /home/tensorflow2/.bashrc
+  echo "export CUDA_HOME=/usr/local/cuda"  >> /home/tensorflow3/.bashrc
+  echo "export PATH=$PATH:\$CUDA_HOME/bin" >> /home/tensorflow3/.bashrc
+  echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$CUDA_HOME/lib64:/usr/local/cudnn-r4/cuda/lib64" >> /home/tensorflow3/.bashrc
 }
 
 

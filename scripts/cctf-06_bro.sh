@@ -6,6 +6,7 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 07-mar-16 : beta 2.
 # 03-mar-16 : beta.
 # 02-mar-16 : created.
 # -----------------------------------------------------------------
@@ -34,9 +35,9 @@ function show_banner () {
   echo -e  ""
   echo -en "\x1b[22;36m"
   echo -e  "\tClassCat(R) Deep Learning Service"
-  echo -e  "\tCopyright (C) 2015 ClassCat Co.,Ltd. All rights reserved."
+  echo -e  "\tCopyright (C) 2016 ClassCat Co.,Ltd. All rights reserved."
   echo -en "\x1b[m"
-  echo -e  "\t\t\x1b[22;34m@Install Bro\x1b[m: release: rc 0xff (2015/03/02)"
+  echo -e  "\t\t\x1b[22;34m@Install Bro\x1b[m: release: beta 2 (03/07/2016)"
   # echo -e  ""
 }
 
@@ -50,6 +51,7 @@ function confirm () {
 
   read var_continue
 }
+
 
 
 ###
@@ -95,7 +97,7 @@ function install_bro () {
 
   cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
-  echo "Host *"                      > ~/.ssh/config
+  echo "Host *"                        > ~/.ssh/config
   echo -e "\tStrictHostKeyChecking=no" >> ~/.ssh/config
 
   sed -i.bak -e "s/MailTo\s*=.*/MailTo=cctf@classcat.com/g" /usr/local/bro/etc/broctl.cfg

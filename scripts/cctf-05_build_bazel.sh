@@ -6,6 +6,7 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 07-mar-16 : beta 2 fixed.
 # 03-mar-16 : beta.
 # 02-mar-16 : fixed.
 # 02-mar-16 : "apt-get steps" moved into init_instance.sh
@@ -32,9 +33,9 @@ function show_banner () {
   echo -e  ""
   echo -en "\x1b[22;36m"
   echo -e  "\tClassCat(R) Deep Learning Service"
-  echo -e  "\tCopyright (C) 2015 ClassCat Co.,Ltd. All rights reserved."
+  echo -e  "\tCopyright (C) 2016 ClassCat Co.,Ltd. All rights reserved."
   echo -en "\x1b[m"
-  echo -e  "\t\t\x1b[22;34m@Build Bazel\x1b[m: release: rc 0xff (2015/03/02)"
+  echo -e  "\t\t\x1b[22;34m@Build Bazel\x1b[m: release: beta 2 (03/07/2016)"
   # echo -e  ""
 }
 
