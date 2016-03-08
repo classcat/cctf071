@@ -81,7 +81,7 @@ function init () {
 
   confirm
 
-  id | grep tensorflow2
+  id | grep tensorflow2 > /dev/null
   if [ "$?" != 0 ]; then
     echo "Script aborted. Id isn't tensorflow2."
     exit 1

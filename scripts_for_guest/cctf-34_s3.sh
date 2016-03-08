@@ -66,7 +66,7 @@ function init () {
 
   confirm
 
-  id | grep tensorflow3
+  id | grep tensorflow3 > /dev/null
   if [ "$?" != 0 ]; then
     echo "Script aborted. Id isn't tensorflow3."
     exit 1
