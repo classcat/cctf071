@@ -67,6 +67,12 @@ function init () {
   show_banner
 
   confirm
+
+  id | grep tensorflow3
+  if [ "$?" != 0 ]; then
+    echo "Script aborted. Id isn't tensorflow3."
+    exit 1
+  fi
 }
 
 
@@ -151,7 +157,7 @@ echo "##########################################################################
 echo "# Script Execution has been completed successfully."
 echo "# 1) Be sure to 'Re-login' to this account to activate a container."
 echo "#" 
-echo "# 2) Then, run cctf-13_install_tf071_into_venv3.sh as 'tensorflow3' account."
+echo "# 2) Then, run cctf-33_install_tf071_into_venv3.sh as 'tensorflow3' account."
 echo "#############################################################################"
 echo ""
 

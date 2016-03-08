@@ -61,6 +61,12 @@ function init () {
   show_banner
 
   confirm
+
+  id | grep tensorflow2
+  if [ "$?" != 0 ]; then
+    echo "Script aborted. Id isn't tensorflow2."
+    exit 1
+  fi
 }
 
 
@@ -105,7 +111,7 @@ cd ~
 echo ""
 echo "#################################################################"
 echo "# Script execution has been completed successfully."
-echo "# Then, run cctf-08_construct_venv2.sh as 'tensorflow2' account."
+echo "# Then, run cctf-22_construct_venv2.sh as 'tensorflow2' account."
 echo "#################################################################"
 echo ""
 

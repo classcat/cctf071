@@ -79,6 +79,12 @@ function init () {
   show_banner
 
   confirm
+
+  id | grep tensorflow3
+  if [ "$?" != 0 ]; then
+    echo "Script aborted. Id isn't tensorflow3."
+    exit 1
+  fi
 }
 
 
@@ -220,7 +226,7 @@ cp -a  ~/.tf_pip_pkg /var/tmp/tf_pip_pkg.071_p3.bak
 echo ""
 echo "####################################################"
 echo "# Script execution has been completed successfully."
-echo "# Then, run cctf-10_s3.sh."
+echo "# Then, run cctf-34_s3.sh as 'tensorflow3' account."
 echo "####################################################"
 echo ""
 

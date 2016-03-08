@@ -64,6 +64,12 @@ function init () {
   show_banner
 
   confirm
+
+  id | grep tensorflow3
+  if [ "$?" != 0 ]; then
+    echo "Script aborted. Id isn't tensorflow3."
+    exit 1
+  fi
 }
 
 
@@ -92,10 +98,10 @@ init
 install_and_config_s3cmd
 
 echo ""
-echo "#####################################################"
+echo "####################################################"
 echo "# Script execution has been completed successfully."
-echo "# You have completed tasks for tensorflow 3 account."
-echo "#####################################################"
+echo "# You have completed tasks for tensorflow3 account."
+echo "####################################################"
 echo ""
 
 
