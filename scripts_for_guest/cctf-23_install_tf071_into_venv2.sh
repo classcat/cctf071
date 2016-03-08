@@ -9,6 +9,7 @@
 # Run on the account - tensorflow070.
 #
 # --- HISTORY -----------------------------------------------------
+# 08-mar-16 : beta 3.
 # 07-mar-16 : beta 2.
 # 04-mar-16 : beta.
 # 29-feb-16 : created.
@@ -53,7 +54,7 @@ function show_banner () {
   echo -e  "\tClassCat(R) Deep Learning Service"
   echo -e  "\tCopyright (C) 2016 ClassCat Co.,Ltd. All rights reserved."
   echo -en "\x1b[m"
-  echo -e  "\t\t\x1b[22;34m@Insall TensorFlow\x1b[m: release: beta 2 (03/07/2016)"
+  echo -e  "\t\t\x1b[22;34m@Insall TensorFlow\x1b[m: release: beta 3 (03/08/2016)"
   # echo -e  ""
 }
 
@@ -120,7 +121,7 @@ function start_build () {
   local var_continue
 
   echo ""
-  echo -ne "Start Build examples and run it. Press return to continue : " >&2
+  echo -ne "Start building examples and run it. Press return to continue : " >&2
 
   read var_continue
 }
@@ -187,7 +188,7 @@ function build_pip_package () {
 function install_tensorflow () {
   pip install ~/.tf_pip_pkg/tensorflow-0.7.1-py2-none-any.whl
   if [ "$?" != 0 ]; then
-    echo "Script aborted.   pip install tensorflow-0.7.1-py2-none-any.whl failed."
+    echo "Script aborted. pip install tensorflow-0.7.1-py2-none-any.whl failed."
     exit 1
   fi
 }
@@ -222,10 +223,10 @@ cp -a  ~/.tf_pip_pkg /var/tmp/tf_pip_pkg.071_p2.bak
 
 
 echo ""
-echo "#####################################################"
+echo "####################################################"
 echo "# Script execution has been completed successfully."
-echo "# Then, run cctf-24_s3.sh. as 'tensorflow2' account."
-echo "#####################################################"
+echo "# Then, run cctf-24_s3.sh as 'tensorflow2' account."
+echo "####################################################"
 echo ""
 
 
