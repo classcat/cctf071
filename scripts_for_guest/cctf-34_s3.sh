@@ -6,6 +6,7 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 08-mar-16 : beta 3.
 # 07-mar-16 : beta 2.
 # 06-mar-16 : minor bug fix.
 # 06-mar-16: sed, use space instead of '/' as delimiter.
@@ -39,7 +40,7 @@ function show_banner () {
   echo -e  "\tClassCat(R) Deep Learning Service"
   echo -e  "\tCopyright (C) 2016 ClassCat Co.,Ltd. All rights reserved."
   echo -en "\x1b[m"
-  echo -e  "\t\t\x1b[22;34m@Set S3\x1b[m: release: beta 2 (03/07/2016)"
+  echo -e  "\t\t\x1b[22;34m@Set S3\x1b[m: release: beta 3 (03/08/2016)"
   # echo -e  ""
 }
 
@@ -85,7 +86,6 @@ function install_and_config_s3cmd () {
   #sed -i.tmpl -e "s/^access_key\s*=.*/access_key = ${S3CMD_ACCESS_KEY_FOR_GUEST}/g" /root/.s3cfg
   #sed -i      -e "s/^secret_key\s*=.*/secret_key = ${S3CMD_SECRET_KEY_FOR_GUEST}/g" /root/.s3cfg
 }
-
 
 
 
