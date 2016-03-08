@@ -137,14 +137,14 @@ rm -rf nvidia
 ### Finally ###
 
 echo ""
-echo "#####################################################################"
+echo "###############################################################"
 echo "# Script execution has been completed successfully."
 echo "#"
-echo "# 1) To enable DRM/NVIDIA driver, please reboot the instance as follows :"
+echo "# 1) To enable DRM/NVIDIA driver, please reboot the instance :"
 echo "#        # sync && reboot "
 echo "#"
 echo "# 2) Then, run cctf-03_install_cuda_and_cudnn.sh."
-echo "#####################################################################"
+echo "###############################################################"
 echo ""
 
 
