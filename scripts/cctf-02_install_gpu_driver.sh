@@ -6,6 +6,7 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 08-mar-16 : beta 3.
 # 07-mar-16 : beta 2 fixed.
 # 06-mar-16 : typo fixed.
 # 03-mar-16 : beta.
@@ -40,7 +41,7 @@ function show_banner () {
   echo -e  "\tClassCat(R) Deep Learning Service"
   echo -e  "\tCopyright (C) 2016 ClassCat Co.,Ltd. All rights reserved."
   echo -en "\x1b[m"
-  echo -e  "\t\t\x1b[22;34m@Install GPU\x1b[m: release: beta 2 (03/07/2016)"
+  echo -e  "\t\t\x1b[22;34m@Install GPU\x1b[m: release: beta 3 (03/08/2016)"
   # echo -e  ""
 }
 
@@ -94,8 +95,6 @@ function install_drm_driver () {
 ###
 
 function install_nvidia_driver () {
-  #apt-get install -y gcc make
-
   wget http://us.download.nvidia.com/XFree86/Linux-x86_64/352.63/NVIDIA-Linux-x86_64-352.63.run
 
   chmod +x NVIDIA-Linux-x86_64-352.63.run 

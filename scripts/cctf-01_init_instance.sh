@@ -6,6 +6,8 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 08-mar-16 : beta 3.
+# 08-mar-16 : 2 passwords generated.
 # 07-mar-16 : python3-dev
 # 07-mar-16 : beta2 fixed.
 # 07-mar-16 : tensorflow2, 3 account added.
@@ -47,7 +49,7 @@ function show_banner () {
   echo -e  "\tClassCat(R) Deep Learning Service"
   echo -e  "\tCopyright (C) 2016 ClassCat Co.,Ltd. All rights reserved."
   echo -en "\x1b[m"
-  echo -e  "\t\t\x1b[22;34m@Init Insance\x1b[m: release: beta 2 (03/07/2016)"
+  echo -e  "\t\t\x1b[22;34m@Init Insance\x1b[m: release: beta 3 (03/08/2016)"
   # echo -e  ""
 }
 
@@ -216,7 +218,8 @@ function install_pkgs_for_bro () {
 ###
 
 # As a global var to display it later.
-PASSWD=`cat /dev/urandom | tr -dc "0-9" | fold -w 5 | head -n 1`
+PASSWD2=`cat /dev/urandom | tr -dc "0-9" | fold -w 5 | head -n 1`
+PASSWD3=`cat /dev/urandom | tr -dc "0-9" | fold -w 5 | head -n 1`
 
 function add_guest_accounts () {
   #apt-get install -y pwgen
@@ -224,8 +227,8 @@ function add_guest_accounts () {
   useradd tensorflow2 -c 'TensorFlow for Python 2' -m -s /bin/bash
   useradd tensorflow3 -c 'TensorFlow for Python 3' -m -s /bin/bash
 
-  echo "tensorflow2:ClassCat-${PASSWD}" | chpasswd
-  echo "tensorflow3:ClassCat-${PASSWD}" | chpasswd
+  echo "tensorflow2:ClassCat-${PASSWD2}" | chpasswd
+  echo "tensorflow3:ClassCat-${PASSWD3}" | chpasswd
 }
 
 
@@ -261,7 +264,8 @@ echo "##########################################################################
 echo "# Script execution has been completed successfully."
 echo "#"
 echo -e "# 1) Make sure to keep the following password by making a note :"
-echo -e "#        \$PASSWD is \x1b[22;34m${PASSWD}\x1b[m"
+echo -e "#        \$PASSWD2 is \x1b[22;34m${PASSWD2}\x1b[m"
+echo -e "#        \$PASSWD3 is \x1b[22;34m${PASSWD3}\x1b[m"
 echo "#"
 echo "# 2) To enable the latest kernel & a swap file, reboot the instance as follows."
 echo "#        # sync && reboot "
