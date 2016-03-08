@@ -6,9 +6,10 @@
 ###################################################################
 
 # --- Descrption --------------------------------------------------
-# o Run as the guest account: tensorflow.
+# o Run as the guest account: tensorflow2.
 #
 # --- HISTORY -----------------------------------------------------
+# 08-mar-16 : beta 3.
 # 07-mar-16 : beta 2.
 # 04-mar-16 : beta.
 # -----------------------------------------------------------------
@@ -36,7 +37,7 @@ function show_banner () {
   echo -e  "\tClassCat(R) Deep Learning Service"
   echo -e  "\tCopyright (C) 2016 ClassCat Co.,Ltd. All rights reserved."
   echo -en "\x1b[m"
-  echo -e  "\t\t\x1b[22;34m@Device Query\x1b[m: release: beta 2 (03/07/2016)"
+  echo -e  "\t\t\x1b[22;34m@Device Query\x1b[m: release: beta 3 (03/08/2016)"
   # echo -e  ""
 }
 
