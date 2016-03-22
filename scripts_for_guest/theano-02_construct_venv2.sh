@@ -138,9 +138,14 @@ floatX = float32
 [nvcc]
 fastmath = True
 
+[cuda]
+root = /usr/local/cuda
+
+[dnn]
+include_path = /usr/local/cudnn-r4/cuda/include
+library_path = /usr/local/cudnn-r4/cuda/lib64
+
 ### reference ###
-#[cuda]
-#root = /Developer/NVIDIA/CUDA-5.5
 #
 #[gcc]
 #cxxflags = -O3 -ffast-math -funroll-loops -ftracer
