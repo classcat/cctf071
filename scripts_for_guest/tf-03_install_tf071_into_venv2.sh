@@ -9,6 +9,7 @@
 # Run on the account - tensorflow070.
 #
 # --- HISTORY -----------------------------------------------------
+# 22-mar-16 : rc 0xff.
 # 08-mar-16 : beta 3.
 # 07-mar-16 : beta 2.
 # 04-mar-16 : beta.
@@ -54,7 +55,7 @@ function show_banner () {
   echo -e  "\tClassCat(R) Deep Learning Service"
   echo -e  "\tCopyright (C) 2016 ClassCat Co.,Ltd. All rights reserved."
   echo -en "\x1b[m"
-  echo -e  "\t\t\x1b[22;34m@Insall TensorFlow\x1b[m: release: beta 3 (03/08/2016)"
+  echo -e  "\t\t\x1b[22;34m@Insall TensorFlow\x1b[m: release: rc 0xff (03/22/2016)"
   # echo -e  ""
 }
 
@@ -63,7 +64,7 @@ function confirm () {
   local var_continue
 
   echo ""
-  echo -ne "This script must be run as 'tensorflow2' account. Press return to continue (or ^C to exit) : " >&2
+  echo -ne "This script must be run as 'tensorflow' account. Press return to continue (or ^C to exit) : " >&2
 
   read var_continue
 }
@@ -81,7 +82,7 @@ function init () {
 
   confirm
 
-  id | grep tensorflow2 > /dev/null
+  id | grep tensorflow > /dev/null
   if [ "$?" != 0 ]; then
     echo "Script aborted. Id isn't tensorflow2."
     exit 1
@@ -225,7 +226,7 @@ cp -a  ~/.tf_pip_pkg /var/tmp/tf_pip_pkg.071_p2.bak
 echo ""
 echo "####################################################"
 echo "# Script execution has been completed successfully."
-echo "# Then, run cctf-24_s3.sh as 'tensorflow2' account."
+echo "# Then, run tf-04_s3.sh as 'tensorflow' account."
 echo "####################################################"
 echo ""
 

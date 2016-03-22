@@ -9,9 +9,13 @@
 # o Run as the guest account: tensorflow.
 #
 # --- TODO --------------------------------------------------------
+# o ~/.keras/keras.json using tensorflow (22-mar-16)
+#
 # o PS1 (01-mar-16)
 #
 # --- HISTORY -----------------------------------------------------
+# 22-mar-16 : rc 0xff.
+# 22-mar-16 : keras added.
 # 08-mar-16 : beta 3.
 # 07-mar-16 : beta 2.
 # 06-mar-16 : modify pip install pkgs.
@@ -42,7 +46,7 @@ function show_banner () {
   echo -e  "\tClassCat(R) Deep Learning Service"
   echo -e  "\tCopyright (C) 2016 ClassCat Co.,Ltd. All rights reserved."
   echo -en "\x1b[m"
-  echo -e  "\t\t\x1b[22;34m@Construct VirutualEnv 2\x1b[m: release: beta 3 (03/08/2016)"
+  echo -e  "\t\t\x1b[22;34m@Construct VirutualEnv 2\x1b[m: release: rc 0xff (03/22/2016)"
   # echo -e  ""
 }
 
@@ -51,7 +55,7 @@ function confirm () {
   local var_continue
 
   echo ""
-  echo -ne "This script must be run as 'tensorflow2' account. Press return to continue (or ^C to exit) : " >&2
+  echo -ne "This script must be run as 'tensorflow' account. Press return to continue (or ^C to exit) : " >&2
 
   read var_continue
 }
@@ -69,9 +73,9 @@ function init () {
 
   confirm
 
-  id | grep tensorflow2 > /dev/null
+  id | grep tensorflow > /dev/null
   if [ "$?" != 0 ]; then
-    echo "Script aborted. Id isn't tensorflow2."
+    echo "Script aborted. Id isn't tensorflow."
     exit 1
   fi
 }
@@ -134,6 +138,12 @@ function pip_install_pkgs () {
     echo "Script aborted. pip install matplotlib failed."
     exit 1
   fi
+
+  pip install keras
+  if [ "$?" != 0 ]; then
+    echo "Script aborted. pip install keras failed."
+    exit 1
+  fi
 }
 
 
@@ -158,7 +168,7 @@ echo "##########################################################################
 echo "# Script Execution has been completed successfully."
 echo "# 1) Be sure to 'Re-login' to this account to activate a container."
 echo "#" 
-echo "# 2) Then, run cctf-23_install_tf071_into_venv2.sh as 'tensorflow2' account."
+echo "# 2) Then, run tf-03_install_tf071_into_venv2.sh as 'tensorflow' account."
 echo "#############################################################################"
 echo ""
 

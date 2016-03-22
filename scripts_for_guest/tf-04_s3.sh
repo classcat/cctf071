@@ -5,21 +5,24 @@
 ### Copyright (C) 2016 ClassCat(R) Co.,Ltd. All righs Reserved. ###
 ###################################################################
 
-# --- Descrption --------------------------------------------------
-# o Run as the guest account: tensorflow.
-#
 # --- HISTORY -----------------------------------------------------
 # 22-mar-16 : rc 0xff.
 # 08-mar-16 : beta 3.
 # 07-mar-16 : beta 2.
+# 06-mar-16 : minor bug fix.
+# 06-mar-16: sed, use space instead of '/' as delimiter.
 # 04-mar-16 : beta.
+# 29-feb-16 : created.
 # -----------------------------------------------------------------
+
+
+. ../conf_for_guest/s3_for_guest.conf
 
 
 function check_if_continue () {
   local var_continue
 
-  echo -ne "About to run query device for ClassCat Deep Learning service. Continue ? (y/n) : " >&2
+  echo -ne "About to set s3 for ClassCat Deep Learning service. Continue ? (y/n) : " >&2
 
   read var_continue
   if [ -z "$var_continue" ] || [ "$var_continue" != 'y' ]; then
@@ -38,7 +41,7 @@ function show_banner () {
   echo -e  "\tClassCat(R) Deep Learning Service"
   echo -e  "\tCopyright (C) 2016 ClassCat Co.,Ltd. All rights reserved."
   echo -en "\x1b[m"
-  echo -e  "\t\t\x1b[22;34m@Device Query\x1b[m: release: rc 0xff (03/22/2016)"
+  echo -e  "\t\t\x1b[22;34m@Set S3\x1b[m: release: rc 0xff (03/22/2016)"
   # echo -e  ""
 }
 
@@ -47,7 +50,7 @@ function confirm () {
   local var_continue
 
   echo ""
-  echo -ne "This script must be run as 'tensorflow2' account. Press return to continue (or ^C to exit) : " >&2
+  echo -ne "This script must be run as 'tensorflow' account. Press return to continue (or ^C to exit) : " >&2
 
   read var_continue
 }
@@ -64,34 +67,25 @@ function init () {
 
   confirm
 
-  id | grep tensorflow2 > /dev/null
+  id | grep tensorflow > /dev/null
   if [ "$?" != 0 ]; then
-    echo "Script aborted. Id isn't tensorflow2."
+    echo "Script aborted. Id isn't tensorflow."
     exit 1
   fi
 }
 
 
-
 ###
-### Device Query
+### S3CMD
 ###
 
-function device_query () {
-  cp -a /usr/local/cuda/samples ~/cuda.samples
+function install_and_config_s3cmd () {
+  install -o tensorflow2 -g tensorflow2 ../assets/s3cfg.north-east-1 ~/.s3cfg
 
-  cd ~/cuda.samples/1_Utilities/deviceQuery
-
-  make
-
-  ./deviceQuery
-
-  if [ "$?" != 0 ]; then
-    echo "Script aborted. ./deviceQuery failed."
-    exit 1
-  fi
-
-  make clean
+  sed -i.tmpl -e "s ^access_key\s*=.* access_key=${S3CMD_ACCESS_KEY_FOR_GUEST} g" ~/.s3cfg
+  sed -i      -e "s ^secret_key\s*=.* secret_key=${S3CMD_SECRET_KEY_FOR_GUEST} g" ~/.s3cfg
+  #sed -i.tmpl -e "s/^access_key\s*=.*/access_key = ${S3CMD_ACCESS_KEY_FOR_GUEST}/g" /root/.s3cfg
+  #sed -i      -e "s/^secret_key\s*=.*/secret_key = ${S3CMD_SECRET_KEY_FOR_GUEST}/g" /root/.s3cfg
 }
 
 
@@ -102,19 +96,13 @@ function device_query () {
 
 init
 
-cd ~
-
-### check device query ###
-
-device_query
-
-cd ~
+install_and_config_s3cmd
 
 echo ""
-echo "#################################################################"
+echo "####################################################"
 echo "# Script execution has been completed successfully."
-echo "# Then, run cctf-22_construct_venv2.sh as 'tensorflow2' account."
-echo "#################################################################"
+echo "# You have completed tasks for tensorflow account."
+echo "####################################################"
 echo ""
 
 
