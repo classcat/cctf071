@@ -97,8 +97,8 @@ function install_and_config_s3cmd () {
   install -o root -g root ../assets/s3cfg.north-east-1 /root/.s3cfg
 
   # change delimiter to space.
-  sed -i.tmpl -e "s ^access_key\s*=.* access_key=${S3_ACCESS_KEY} g" /root/.s3cfg
-  sed -i      -e "s ^secret_key\s*=.* secret_key=${S3_SECRET_KEY} g" /root/.s3cfg
+  sed -i.tmpl -e "s ^access_key\s*=.* access_key=${S3CMD_ACCESS_KEY} g" /root/.s3cfg
+  sed -i      -e "s ^secret_key\s*=.* secret_key=${S3CMD_SECRET_KEY} g" /root/.s3cfg
   #sed -i.tmpl -e "s/^access_key\s*=.*/access_key = ${S3CMD_ACCESS_KEY}/g" /root/.s3cfg
   #sed -i      -e "s/^secret_key\s*=.*/secret_key = ${S3CMD_SECRET_KEY}/g" /root/.s3cfg
 }
