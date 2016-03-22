@@ -6,7 +6,7 @@
 ###################################################################
 
 # --- Descrption --------------------------------------------------
-# o Run as the guest account: tensorflow.
+# o Run as the guest account: theano.
 #
 # --- TODO --------------------------------------------------------
 # o ~/.keras/keras.json using tensorflow (22-mar-16)
@@ -90,7 +90,7 @@ function create_venv_container () {
   virtualenv venv2_theano080
 
   echo "" >> ~/.bashrc
-  echo ". venv2_tf071/bin/activate" >> ~/.bashrc
+  echo ". venv2_theano080/bin/activate" >> ~/.bashrc
 }
 
 
@@ -193,7 +193,7 @@ echo "##########################################################################
 echo "# Script Execution has been completed successfully."
 echo "# 1) Be sure to 'Re-login' to this account to activate a container."
 echo "#" 
-echo "# 2) Then, run theano-03_s3.sh as 'tensorflow' account."
+echo "# 2) Then, run theano-03_s3.sh as 'theano' account."
 echo "#############################################################################"
 echo ""
 

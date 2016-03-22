@@ -182,6 +182,9 @@ function install_pkgs_for_venv () {
 
   # for matplotlib
   apt-get install -y libfreetype6 libfreetype6-dev
+
+  # for keras
+  apt-get install -y libyaml-dev
 }
 
 
