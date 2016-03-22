@@ -139,7 +139,7 @@ function pip_install_pkgs () {
     exit 1
   fi
 
-  pip install keras
+  pip install --no-deps keras
   if [ "$?" != 0 ]; then
     echo "Script aborted. pip install keras failed."
     exit 1
