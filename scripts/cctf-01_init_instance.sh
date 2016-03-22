@@ -6,6 +6,8 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 22-mar-16 : rc 0xff.
+# 22-mar-16 : account: theano, chainer.
 # 08-mar-16 : beta 3.
 # 08-mar-16 : 2 passwords generated.
 # 07-mar-16 : python3-dev
@@ -49,7 +51,7 @@ function show_banner () {
   echo -e  "\tClassCat(R) Deep Learning Service"
   echo -e  "\tCopyright (C) 2016 ClassCat Co.,Ltd. All rights reserved."
   echo -en "\x1b[m"
-  echo -e  "\t\t\x1b[22;34m@Init Insance\x1b[m: release: beta 3 (03/08/2016)"
+  echo -e  "\t\t\x1b[22;34m@Init Insance\x1b[m: release: rc 0xff (03/22/2016)"
   # echo -e  ""
 }
 
@@ -218,17 +220,24 @@ function install_pkgs_for_bro () {
 ###
 
 # As a global var to display it later.
-PASSWD2=`cat /dev/urandom | tr -dc "0-9" | fold -w 5 | head -n 1`
-PASSWD3=`cat /dev/urandom | tr -dc "0-9" | fold -w 5 | head -n 1`
+PASSWD_TENSORFLOW=`cat /dev/urandom | tr -dc "0-9" | fold -w 5 | head -n 1`
+PASSWD_THEANO=`cat /dev/urandom | tr -dc "0-9" | fold -w 5 | head -n 1`
+PASSWD_CHAINER=`cat /dev/urandom | tr -dc "0-9" | fold -w 5 | head -n 1`
 
 function add_guest_accounts () {
   #apt-get install -y pwgen
 
-  useradd tensorflow2 -c 'TensorFlow for Python 2' -m -s /bin/bash
-  useradd tensorflow3 -c 'TensorFlow for Python 3' -m -s /bin/bash
+  useradd tensorflow -c 'TensorFlow for Python 2' -m -s /bin/bash
+  useradd theano     -c 'Theano for Python 2'     -m -s /bin/bash
+  useradd chainer    -c 'Chainer for Python 2'    -m -s /bin/bash
+  #useradd tensorflow2 -c 'TensorFlow for Python 2' -m -s /bin/bash
+  #useradd tensorflow3 -c 'TensorFlow for Python 3' -m -s /bin/bash
 
-  echo "tensorflow2:ClassCat-${PASSWD2}" | chpasswd
-  echo "tensorflow3:ClassCat-${PASSWD3}" | chpasswd
+  echo "tensorflow:ClassCat-${PASSWD_TENSORFLOW}" | chpasswd
+  echo "theano:ClassCat-${PASSWD_THEANO}"         | chpasswd
+  echo "chainer:ClassCat-${PASSWD_CHAINER}"       | chpasswd
+  #echo "tensorflow2:ClassCat-${PASSWD2}" | chpasswd
+  #echo "tensorflow3:ClassCat-${PASSWD3}" | chpasswd
 }
 
 
@@ -264,8 +273,9 @@ echo "##########################################################################
 echo "# Script execution has been completed successfully."
 echo "#"
 echo -e "# 1) Make sure to keep the following password by making a note :"
-echo -e "#        \$PASSWD2 is \x1b[22;34m${PASSWD2}\x1b[m"
-echo -e "#        \$PASSWD3 is \x1b[22;34m${PASSWD3}\x1b[m"
+echo -e "#        \$PASSWD for TensorFlow is \x1b[22;34m${PASSWD_TENSORFLOW}\x1b[m"
+echo -e "#        \$PASSWD for Theano     is \x1b[22;34m${PASSWD_THEANO}\x1b[m"
+echo -e "#        \$PASSWD for Chainer    is \x1b[22;34m${PASSWD_CHAINER}\x1b[m"
 echo "#"
 echo "# 2) To enable the latest kernel & a swap file, reboot the instance as follows."
 echo "#        # sync && reboot "

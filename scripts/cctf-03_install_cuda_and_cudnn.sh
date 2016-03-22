@@ -6,6 +6,8 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
+# 22-mar-16 : rc 0xff
+# 22-mar-16 : account: theano, chainer
 # 08-mar-16 : beta 3.
 # 07-mar-16 : beta 2 fixed.
 # 03-mar-16 : Beta.
@@ -37,7 +39,7 @@ function show_banner () {
   echo -e  "\tClassCat(R) Deep Learning Service"
   echo -e  "\tCopyright (C) 2016 ClassCat Co.,Ltd. All rights reserved."
   echo -en "\x1b[m"
-  echo -e  "\t\t\x1b[22;34m@Install CUDA & cuDNN\x1b[m: release: beta 3 (03/08/2016)"
+  echo -e  "\t\t\x1b[22;34m@Install CUDA & cuDNN\x1b[m: release: rc 0xff (03/22/2016)"
   # echo -e  ""
 }
 
@@ -107,15 +109,30 @@ function config_bashrc_for_cuda () {
   echo "export PATH=$PATH:\$CUDA_HOME/bin" >> /root/.bashrc
   echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$CUDA_HOME/lib64:/usr/local/cudnn-r4/cuda/lib64" >> /root/.bashrc
 
-  echo "" >> /home/tensorflow2/.bashrc
-  echo "export CUDA_HOME=/usr/local/cuda"  >> /home/tensorflow2/.bashrc
-  echo "export PATH=$PATH:\$CUDA_HOME/bin" >> /home/tensorflow2/.bashrc
-  echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$CUDA_HOME/lib64:/usr/local/cudnn-r4/cuda/lib64" >> /home/tensorflow2/.bashrc
+  echo "" >> /home/tensorflow/.bashrc
+  echo "export CUDA_HOME=/usr/local/cuda"  >> /home/tensorflow/.bashrc
+  echo "export PATH=$PATH:\$CUDA_HOME/bin" >> /home/tensorflow/.bashrc
+  echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$CUDA_HOME/lib64:/usr/local/cudnn-r4/cuda/lib64" >> /home/tensorflow/.bashrc
 
-  echo "" >> /home/tensorflow3/.bashrc
-  echo "export CUDA_HOME=/usr/local/cuda"  >> /home/tensorflow3/.bashrc
-  echo "export PATH=$PATH:\$CUDA_HOME/bin" >> /home/tensorflow3/.bashrc
-  echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$CUDA_HOME/lib64:/usr/local/cudnn-r4/cuda/lib64" >> /home/tensorflow3/.bashrc
+  echo "" >> /home/theano/.bashrc
+  echo "export CUDA_HOME=/usr/local/cuda"  >> /home/theano/.bashrc
+  echo "export PATH=$PATH:\$CUDA_HOME/bin" >> /home/theano/.bashrc
+  echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$CUDA_HOME/lib64:/usr/local/cudnn-r4/cuda/lib64" >> /home/theano/.bashrc
+
+  echo "" >> /home/chainer/.bashrc
+  echo "export CUDA_HOME=/usr/local/cuda"  >> /home/chainer/.bashrc
+  echo "export PATH=$PATH:\$CUDA_HOME/bin" >> /home/chainer/.bashrc
+  echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$CUDA_HOME/lib64:/usr/local/cudnn-r4/cuda/lib64" >> /home/chainer/.bashrc
+
+  #echo "" >> /home/tensorflow2/.bashrc
+  #echo "export CUDA_HOME=/usr/local/cuda"  >> /home/tensorflow2/.bashrc
+  #echo "export PATH=$PATH:\$CUDA_HOME/bin" >> /home/tensorflow2/.bashrc
+  #echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$CUDA_HOME/lib64:/usr/local/cudnn-r4/cuda/lib64" >> /home/tensorflow2/.bashrc
+
+  #echo "" >> /home/tensorflow3/.bashrc
+  #echo "export CUDA_HOME=/usr/local/cuda"  >> /home/tensorflow3/.bashrc
+  #echo "export PATH=$PATH:\$CUDA_HOME/bin" >> /home/tensorflow3/.bashrc
+  #echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$CUDA_HOME/lib64:/usr/local/cudnn-r4/cuda/lib64" >> /home/tensorflow3/.bashrc
 }
 
 

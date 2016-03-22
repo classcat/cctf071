@@ -6,6 +6,7 @@
 ###################################################################
 
 # --- Descrption --------------------------------------------------
+# 22-mar-16 : rc 0xff.
 # 08-mar-16 : beta 3.
 # 03-mar-16 : Beta.
 #
@@ -39,7 +40,7 @@ function show_banner () {
   echo -e  "\tClassCat(R) Deep Learning Service"
   echo -e  "\tCopyright (C) 2016 ClassCat Co.,Ltd. All rights reserved."
   echo -en "\x1b[m"
-  echo -e  "\t\t\x1b[22;34m@Device Query\x1b[m: release: beta 3 (03/08/2016)"
+  echo -e  "\t\t\x1b[22;34m@Device Query\x1b[m: release: rc 0xff (03/22/2016)"
   # echo -e  ""
 }
 
