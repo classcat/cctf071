@@ -127,6 +127,26 @@ function install_theano () {
   python setup.py build
 
   python setup.py install
+
+  cat <<_EOB_ > ~/.theanorc
+[global]
+device = gpu0
+floatX = float32
+#force_device = True
+#allow_gc = False
+
+[nvcc]
+fastmath = True
+
+### reference ###
+#[cuda]
+#root = /Developer/NVIDIA/CUDA-5.5
+#
+#[gcc]
+#cxxflags = -O3 -ffast-math -funroll-loops -ftracer
+#
+_EOB_
+
 }
 
 
