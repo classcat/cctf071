@@ -209,6 +209,25 @@ function install_pkgs_for_bazel () {
 
 
 ###
+### Torch
+###
+
+function install_pkgs_for_torch () {
+  add-apt-repository -y ppa:chris-lea/zeromq
+  add-apt-repository -y ppa:chris-lea/node.js
+
+  apt-get update
+
+  apt-get install -y build-essential gcc g++ curl \
+            cmake libreadline-dev git-core libqt4-core libqt4-gui \
+            libqt4-dev libjpeg-dev libpng-dev ncurses-dev \
+            imagemagick libzmq3-dev gfortran unzip gnuplot \
+            gnuplot-x11 
+  # ipython
+}
+
+
+###
 ### Bro
 ###
 
@@ -225,21 +244,19 @@ function install_pkgs_for_bro () {
 # As a global var to display it later.
 PASSWD_TENSORFLOW=`cat /dev/urandom | tr -dc "0-9" | fold -w 5 | head -n 1`
 PASSWD_THEANO=`cat /dev/urandom | tr -dc "0-9" | fold -w 5 | head -n 1`
-PASSWD_CHAINER=`cat /dev/urandom | tr -dc "0-9" | fold -w 5 | head -n 1`
+PASSWD_TORCH=`cat /dev/urandom | tr -dc "0-9" | fold -w 5 | head -n 1`
 
 function add_guest_accounts () {
   #apt-get install -y pwgen
 
   useradd tensorflow -c 'TensorFlow for Python 2' -m -s /bin/bash
   useradd theano     -c 'Theano for Python 2'     -m -s /bin/bash
-  useradd chainer    -c 'Chainer for Python 2'    -m -s /bin/bash
-  #useradd tensorflow2 -c 'TensorFlow for Python 2' -m -s /bin/bash
+  useradd torch      -c 'Torch'                   -m -s /bin/bash
   #useradd tensorflow3 -c 'TensorFlow for Python 3' -m -s /bin/bash
 
   echo "tensorflow:ClassCat-${PASSWD_TENSORFLOW}" | chpasswd
   echo "theano:ClassCat-${PASSWD_THEANO}"         | chpasswd
-  echo "chainer:ClassCat-${PASSWD_CHAINER}"       | chpasswd
-  #echo "tensorflow2:ClassCat-${PASSWD2}" | chpasswd
+  echo "torch:ClassCat-${PASSWD_TORCH}"       | chpasswd
   #echo "tensorflow3:ClassCat-${PASSWD3}" | chpasswd
 }
 
@@ -261,6 +278,8 @@ install_pkgs_for_venv
 
 install_pkgs_for_bazel
 
+install_pkgs_for_torch
+
 install_pkgs_for_bro
 
 add_guest_accounts
@@ -278,7 +297,7 @@ echo "#"
 echo -e "# 1) Make sure to keep the following password by making a note :"
 echo -e "#        \$PASSWD for TensorFlow is \x1b[22;34m${PASSWD_TENSORFLOW}\x1b[m"
 echo -e "#        \$PASSWD for Theano     is \x1b[22;34m${PASSWD_THEANO}\x1b[m"
-echo -e "#        \$PASSWD for Chainer    is \x1b[22;34m${PASSWD_CHAINER}\x1b[m"
+echo -e "#        \$PASSWD for Torch      is \x1b[22;34m${PASSWD_TORCH}\x1b[m"
 echo "#"
 echo "# 2) To enable the latest kernel & a swap file, reboot the instance as follows."
 echo "#        # sync && reboot "
