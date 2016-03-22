@@ -144,6 +144,10 @@ function pip_install_pkgs () {
     echo "Script aborted. pip install keras failed."
     exit 1
   fi
+
+  mkdir ~/.keras
+
+  echo '{"epsilon": 1e-07, "floatx": "float32", "backend": "tensorflow"}' > ~/.keras/keras.json
 }
 
 
