@@ -75,6 +75,9 @@ function init_instance () {
 
   apt-get install -y ntp
 
+  cp -p /etc/localtime /etc/localtime.orig
+  cp -p /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+
   ### /etc/hosts to disable ipv6 ###
   cp -p /etc/hosts /etc/hosts.orig
   echo "127.0.0.1\tlocalhost\n" > /etc/hosts
