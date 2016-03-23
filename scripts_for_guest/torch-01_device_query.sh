@@ -113,7 +113,7 @@ cd ~
 echo ""
 echo "#################################################################"
 echo "# Script execution has been completed successfully."
-echo "# Then, run torch-02_install.sh as 'torch' account."
+echo "# Then, run torch-02_construct_venv2.sh as 'torch' account."
 echo "#################################################################"
 echo ""
 

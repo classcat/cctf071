@@ -100,7 +100,7 @@ cd ~
 echo ""
 echo "#################################################################"
 echo "# Script execution has been completed successfully."
-echo "# Then, run torch-03_s3.sh as 'torch' account."
+echo "# Then, run torch-04_s3.sh as 'torch' account."
 echo "#################################################################"
 echo ""
 
