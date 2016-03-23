@@ -115,11 +115,11 @@ function pip_install_pkgs () {
     exit 1
   fi
 
-  pip install pandas
-  if [ "$?" != 0 ]; then
-    echo "Script aborted. pip install pandas failed."
-    exit 1
-  fi
+#  pip install pandas
+#  if [ "$?" != 0 ]; then
+#    echo "Script aborted. pip install pandas failed."
+#    exit 1
+#  fi
 
   pip install jupyter
   if [ "$?" != 0 ]; then
