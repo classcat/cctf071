@@ -6,14 +6,23 @@
 ###################################################################
 
 # --- HISTORY -----------------------------------------------------
-# 22-mar-16 : created.
+# 22-mar-16 : rc 0xff.
+# 08-mar-16 : beta 3.
+# 07-mar-16 : beta 2.
+# 06-mar-16 : minor bug fix.
+# 06-mar-16: sed, use space instead of '/' as delimiter.
+# 04-mar-16 : beta.
+# 29-feb-16 : created.
 # -----------------------------------------------------------------
+
+
+. ../conf_for_guest/s3_for_guest.conf
 
 
 function check_if_continue () {
   local var_continue
 
-  echo -ne "About to install torch for ClassCat Deep Learning service. Continue ? (y/n) : " >&2
+  echo -ne "About to set s3 for ClassCat Deep Learning service. Continue ? (y/n) : " >&2
 
   read var_continue
   if [ -z "$var_continue" ] || [ "$var_continue" != 'y' ]; then
@@ -23,6 +32,7 @@ function check_if_continue () {
   fi
 }
 
+
 function show_banner () {
   clear
 
@@ -31,7 +41,7 @@ function show_banner () {
   echo -e  "\tClassCat(R) Deep Learning Service"
   echo -e  "\tCopyright (C) 2016 ClassCat Co.,Ltd. All rights reserved."
   echo -en "\x1b[m"
-  echo -e  "\t\t\x1b[22;34m@Device Query\x1b[m: release: rc 0xff (03/22/2016)"
+  echo -e  "\t\t\x1b[22;34m@Set S3\x1b[m: release: rc 0xff (03/22/2016)"
   # echo -e  ""
 }
 
@@ -65,24 +75,19 @@ function init () {
 }
 
 
+###
+### S3CMD
+###
 
-#############
-### TORCH ###
-#############
+function install_and_config_s3cmd () {
+  install -o torch -g torch ../assets/s3cfg.north-east-1 ~/.s3cfg
 
-
-function install_torch () {
-  git clone https://github.com/torch/distro.git ~/torch --recursive
-
-  cd torch
-
-  ./install.sh
-
-  if [ "$?" != 0 ]; then
-    echo "Script aborted. install.sh failed."
-    exit 1
-  fi
+  sed -i.tmpl -e "s ^access_key\s*=.* access_key=${S3CMD_ACCESS_KEY_FOR_GUEST} g" ~/.s3cfg
+  sed -i      -e "s ^secret_key\s*=.* secret_key=${S3CMD_SECRET_KEY_FOR_GUEST} g" ~/.s3cfg
+  #sed -i.tmpl -e "s/^access_key\s*=.*/access_key = ${S3CMD_ACCESS_KEY_FOR_GUEST}/g" /root/.s3cfg
+  #sed -i      -e "s/^secret_key\s*=.*/secret_key = ${S3CMD_SECRET_KEY_FOR_GUEST}/g" /root/.s3cfg
 }
+
 
 
 ###################
@@ -91,18 +96,17 @@ function install_torch () {
 
 init
 
-cd ~
-
-install_torch
-
-cd ~
+install_and_config_s3cmd
 
 echo ""
-echo "#################################################################"
+echo "####################################################"
 echo "# Script execution has been completed successfully."
-echo "# Then, run torch-03_s3.sh as 'torch' account."
-echo "#################################################################"
+echo "# You have completed tasks for torch account."
+echo "####################################################"
 echo ""
 
 
 exit 0
+
+
+### End of Script ###
